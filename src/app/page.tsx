@@ -75,13 +75,6 @@ const whyPoints = [
   { title: "End-to-End Execution", desc: "From strategy and design to deployment and maintenance — all in-house." },
 ];
 
-const techStack = [
-  "Next.js", "React", "Node.js", "Python", "Flutter", "TypeScript",
-  "AWS", "DigitalOcean", "Cloudflare", "Vercel", "Docker",
-  "OpenAI", "Claude AI", "Gemini", "LangChain",
-  "PostgreSQL", "MySQL", "Supabase", "Firebase", "Redis",
-  "Tailwind CSS", "Prisma", "GraphQL", "REST API",
-];
 
 const process = [
   { num: "01", title: "Discovery Meeting", desc: "We listen first — what's broken, what's manual, what's costing your business time or money." },
@@ -485,43 +478,6 @@ export default function HomePage() {
                 </div>
               </Reveal>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── TECH STACK MARQUEE ── */}
-      <section className="py-16 relative overflow-hidden">
-        <div className="relative max-w-6xl mx-auto px-6 mb-10">
-          <Reveal>
-            <div className="text-center">
-              <span className="section-tag mb-3 inline-flex">Technology Stack</span>
-              <h2 className="font-display font-bold text-3xl md:text-4xl mt-4">
-                We Build With <span className="gradient-text">Industry-Leading Tools</span>
-              </h2>
-            </div>
-          </Reveal>
-        </div>
-
-        <div className="space-y-3">
-          <div className="marquee-wrap">
-            <div className="marquee-track flex gap-3">
-              {[...techStack, ...techStack].map((tech, i) => (
-                <div key={i} className="glass-card rounded-lg px-4 py-2.5 text-sm font-medium text-muted whitespace-nowrap flex items-center gap-2 hover:text-white hover:border-teal/30 transition-colors">
-                  <span className="w-1.5 h-1.5 rounded-full bg-teal/60" />
-                  {tech}
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="marquee-wrap">
-            <div className="marquee-track marquee-track-reverse flex gap-3">
-              {[...techStack.reverse(), ...techStack].map((tech, i) => (
-                <div key={i} className="glass-card rounded-lg px-4 py-2.5 text-sm font-medium text-muted whitespace-nowrap flex items-center gap-2 hover:text-white hover:border-teal/30 transition-colors">
-                  <span className="w-1.5 h-1.5 rounded-full bg-teal/40" />
-                  {tech}
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </section>
