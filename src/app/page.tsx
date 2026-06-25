@@ -491,7 +491,6 @@ export default function HomePage() {
 
       {/* ── TECH STACK MARQUEE ── */}
       <section className="py-16 relative overflow-hidden">
-        <div className="absolute inset-0 bg-navy/60" />
         <div className="relative max-w-6xl mx-auto px-6 mb-10">
           <Reveal>
             <div className="text-center">
