@@ -17,7 +17,7 @@ const company = [
   { label: "Dedicated IT Team", href: "/dedicated-it-team" },
   { label: "Industries", href: "/industries" },
   { label: "Case Studies", href: "/case-studies" },
-  { label: "Our Products", href: "/#products" },
+  { label: "Our Products", href: "/products" },
 ];
 
 const industries = [

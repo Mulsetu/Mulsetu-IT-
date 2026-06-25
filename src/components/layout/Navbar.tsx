@@ -119,6 +119,10 @@ export default function Navbar() {
             <Link href="/about" className="text-sm font-medium text-muted hover:text-white transition-colors">
               About
             </Link>
+            <Link href="/products" className="text-sm font-medium text-teal-bright/80 hover:text-teal-bright transition-colors flex items-center gap-1.5">
+              Products
+              <span className="text-[10px] font-bold tracking-widest uppercase bg-teal/10 border border-teal/25 text-teal rounded-full px-1.5 py-0.5 leading-none">New</span>
+            </Link>
           </div>
 
           {/* CTA */}
@@ -174,6 +178,7 @@ export default function Navbar() {
                 { label: "Industries", href: "/industries" },
                 { label: "Process", href: "/process" },
                 { label: "About", href: "/about" },
+                { label: "Products", href: "/products" },
                 { label: "Contact", href: "/contact" },
               ].map((item) => (
                 <Link
