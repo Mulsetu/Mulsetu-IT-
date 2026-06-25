@@ -1,7 +1,6 @@
 "use client";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Zap, Mail, MessageCircle, ArrowUpRight } from "lucide-react";
 
 const services = [
   { label: "AI & Automation", href: "/services/ai-automation" },
@@ -38,26 +37,19 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link href="/" className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-teal to-teal-dim flex items-center justify-center">
-                <Zap size={16} className="text-white" fill="white" />
-              </div>
-              <span className="font-display font-bold text-xl">
-                <span className="gradient-text">Mul</span>setu
+              <span className="font-display font-bold text-xl tracking-tight">
+                <span className="gradient-text">Mul</span><span className="text-white">setu</span>
               </span>
             </Link>
             <p className="text-sm text-muted leading-relaxed mb-6">
               Your dedicated technology and AI partner. We work like your in-house IT team — without the overhead.
             </p>
             <div className="flex flex-col gap-3">
-              <a href="mailto:hello@mulsetu.com" className="flex items-center gap-2 text-sm text-muted hover:text-teal-bright transition-colors group">
-                <Mail size={14} />
-                <span>hello@mulsetu.com</span>
-                <ArrowUpRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+              <a href="mailto:founder@mulsetu.com" className="text-sm text-muted hover:text-teal-bright transition-colors">
+                founder@mulsetu.com
               </a>
-              <a href="https://wa.me/91XXXXXXXXXX" className="flex items-center gap-2 text-sm text-muted hover:text-teal-bright transition-colors group">
-                <MessageCircle size={14} />
-                <span>WhatsApp Us</span>
-                <ArrowUpRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+              <a href="https://wa.me/91XXXXXXXXXX" className="text-sm text-muted hover:text-teal-bright transition-colors">
+                WhatsApp Us
               </a>
             </div>
           </div>

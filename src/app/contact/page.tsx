@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, MessageCircle, Calendar, ArrowRight, CheckCircle2 } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
 
 const services = [
@@ -50,33 +49,18 @@ export default function ContactPage() {
               <Reveal delay={0.1}>
                 <div className="glass-card rounded-2xl p-6">
                   <h3 className="font-display font-bold text-lg mb-5">Ways to Reach Us</h3>
-                  <div className="space-y-4">
-                    <a href="mailto:hello@mulsetu.com" className="flex items-center gap-4 group">
-                      <div className="w-10 h-10 rounded-xl bg-teal/10 border border-teal/20 flex items-center justify-center shrink-0 group-hover:bg-teal/20 transition-colors">
-                        <Mail size={18} className="text-teal-bright" />
-                      </div>
-                      <div>
-                        <div className="text-xs text-muted mb-0.5">Email Us</div>
-                        <div className="text-sm font-medium group-hover:text-teal-bright transition-colors">hello@mulsetu.com</div>
-                      </div>
+                  <div className="space-y-5">
+                    <a href="mailto:founder@mulsetu.com" className="block group">
+                      <div className="text-xs text-muted mb-1">Email Us</div>
+                      <div className="text-sm font-medium group-hover:text-teal-bright transition-colors">founder@mulsetu.com</div>
                     </a>
-                    <a href="https://wa.me/91XXXXXXXXXX" className="flex items-center gap-4 group">
-                      <div className="w-10 h-10 rounded-xl bg-green-500/10 border border-green-500/20 flex items-center justify-center shrink-0 group-hover:bg-green-500/20 transition-colors">
-                        <MessageCircle size={18} className="text-green-400" />
-                      </div>
-                      <div>
-                        <div className="text-xs text-muted mb-0.5">WhatsApp</div>
-                        <div className="text-sm font-medium">Chat Directly</div>
-                      </div>
+                    <a href="https://wa.me/91XXXXXXXXXX" className="block group">
+                      <div className="text-xs text-muted mb-1">WhatsApp</div>
+                      <div className="text-sm font-medium group-hover:text-teal-bright transition-colors">Chat Directly</div>
                     </a>
-                    <div className="flex items-center gap-4">
-                      <div className="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center shrink-0">
-                        <Calendar size={18} className="text-blue-400" />
-                      </div>
-                      <div>
-                        <div className="text-xs text-muted mb-0.5">Book a Call</div>
-                        <div className="text-sm font-medium">30-min free strategy session</div>
-                      </div>
+                    <div>
+                      <div className="text-xs text-muted mb-1">Book a Call</div>
+                      <div className="text-sm font-medium">30-min free strategy session</div>
                     </div>
                   </div>
                 </div>
@@ -88,7 +72,7 @@ export default function ContactPage() {
                   <ul className="space-y-3">
                     {["Reply within 4 business hours", "Free 30-minute strategy session", "Clear technology roadmap proposal", "No-obligation, no sales pressure"].map((item) => (
                       <li key={item} className="flex items-start gap-2.5 text-sm text-soft">
-                        <CheckCircle2 size={14} className="text-teal-bright mt-0.5 shrink-0" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-teal-bright mt-1.5 shrink-0" />
                         {item}
                       </li>
                     ))}
@@ -108,7 +92,7 @@ export default function ContactPage() {
                       className="text-center py-12"
                     >
                       <div className="w-16 h-16 rounded-full bg-teal/20 border border-teal/30 flex items-center justify-center mx-auto mb-5">
-                        <CheckCircle2 size={32} className="text-teal-bright" />
+                        <span className="text-teal-bright text-2xl font-bold">✓</span>
                       </div>
                       <h3 className="font-display font-bold text-2xl mb-3">Message Sent!</h3>
                       <p className="text-muted">We&apos;ll get back to you within 4 business hours.</p>
@@ -147,7 +131,7 @@ export default function ContactPage() {
                         <textarea required rows={4} value={form.message} onChange={e => setForm({...form, message: e.target.value})} placeholder="Describe your project, what you're trying to solve, or what you need help with..." className="w-full bg-white/[0.04] border border-white/[0.08] rounded-xl px-4 py-3 text-sm text-white placeholder-muted/50 focus:outline-none focus:border-teal/40 focus:bg-white/[0.06] transition-all resize-none" />
                       </div>
                       <button type="submit" className="btn-primary w-full py-4 rounded-xl font-semibold text-base flex items-center justify-center gap-2">
-                        <span className="relative z-10 flex items-center gap-2">Send Message <ArrowRight size={16} /></span>
+                        <span className="relative z-10">Send Message &rarr;</span>
                       </button>
                       <p className="text-xs text-muted/50 text-center">We&apos;ll reply within 4 business hours. No spam, ever.</p>
                     </form>

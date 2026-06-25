@@ -2,7 +2,6 @@
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle2, Zap, ChevronRight } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
 import { TypeAnimation } from "react-type-animation";
@@ -14,7 +13,6 @@ const HeroCanvas = dynamic(() => import("@/components/three/HeroCanvas"), { ssr:
 
 const services = [
   {
-    icon: "🤖",
     title: "AI & Automation",
     desc: "Chatbots, WhatsApp bots, email automation and AI agents that handle your repetitive operations 24/7.",
     tags: ["AI Chatbots", "WhatsApp Bot", "Email Automation", "AI Agents"],
@@ -22,7 +20,6 @@ const services = [
     color: "from-purple-500/10 to-teal/5",
   },
   {
-    icon: "🌐",
     title: "Website Development",
     desc: "Performance-first websites in Next.js, React or WordPress — built to convert visitors into clients.",
     tags: ["Next.js", "Corporate", "E-Commerce", "Landing Pages"],
@@ -30,7 +27,6 @@ const services = [
     color: "from-blue-500/10 to-teal/5",
   },
   {
-    icon: "☁️",
     title: "SaaS Development",
     desc: "End-to-end SaaS platforms — multi-tenant architecture, subscription billing, analytics dashboards.",
     tags: ["Multi-tenant", "Dashboards", "Portals", "Subscriptions"],
@@ -38,7 +34,6 @@ const services = [
     color: "from-sky-500/10 to-teal/5",
   },
   {
-    icon: "🏭",
     title: "Custom Software & ERP",
     desc: "ERP, billing, inventory, HR and CRM — software that fits your workflow, not the other way around.",
     tags: ["ERP", "Billing", "Inventory", "School ERP"],
@@ -46,7 +41,6 @@ const services = [
     color: "from-amber-500/10 to-teal/5",
   },
   {
-    icon: "📱",
     title: "Mobile App Development",
     desc: "Android, iOS and cross-platform Flutter apps for your customers and field teams.",
     tags: ["Android", "iOS", "Flutter", "Admin Panel"],
@@ -54,7 +48,6 @@ const services = [
     color: "from-green-500/10 to-teal/5",
   },
   {
-    icon: "📈",
     title: "Digital Growth & SEO",
     desc: "SEO strategy, performance optimization, analytics setup and lead generation systems that compound.",
     tags: ["SEO", "Performance", "Analytics", "Lead Gen"],
@@ -64,22 +57,22 @@ const services = [
 ];
 
 const problems = [
-  { icon: "⚙️", text: "Too much manual, repetitive work" },
-  { icon: "💾", text: "No proper software for your workflow" },
-  { icon: "👥", text: "No technical team to guide or build" },
-  { icon: "📉", text: "Website not generating leads" },
-  { icon: "🔄", text: "No automation in operations" },
-  { icon: "🔧", text: "Too many disconnected tools" },
-  { icon: "🧭", text: "No clarity on what technology to build" },
+  { text: "Too much manual, repetitive work" },
+  { text: "No proper software for your workflow" },
+  { text: "No technical team to guide or build" },
+  { text: "Website not generating leads" },
+  { text: "No automation in operations" },
+  { text: "Too many disconnected tools" },
+  { text: "No clarity on what technology to build" },
 ];
 
 const whyPoints = [
-  { icon: "🔍", title: "Business Analysis", desc: "We understand your operations deeply before recommending any technology." },
-  { icon: "🤖", title: "AI Consulting", desc: "We map where AI gives you the highest ROI and build exactly that." },
-  { icon: "🗺️", title: "Product Strategy", desc: "Roadmaps built around your goals — not feature lists or guesswork." },
-  { icon: "👥", title: "Dedicated Tech Team", desc: "One team, full accountability, zero handoff between vendors." },
-  { icon: "🔁", title: "Long-Term Support", desc: "We scale with your business. Not a one-time delivery, ever." },
-  { icon: "⚡", title: "End-to-End Execution", desc: "From strategy and design to deployment and maintenance — all in-house." },
+  { title: "Business Analysis", desc: "We understand your operations deeply before recommending any technology." },
+  { title: "AI Consulting", desc: "We map where AI gives you the highest ROI and build exactly that." },
+  { title: "Product Strategy", desc: "Roadmaps built around your goals — not feature lists or guesswork." },
+  { title: "Dedicated Tech Team", desc: "One team, full accountability, zero handoff between vendors." },
+  { title: "Long-Term Support", desc: "We scale with your business. Not a one-time delivery, ever." },
+  { title: "End-to-End Execution", desc: "From strategy and design to deployment and maintenance — all in-house." },
 ];
 
 const techStack = [
@@ -91,33 +84,27 @@ const techStack = [
 ];
 
 const process = [
-  { num: "01", icon: "🎯", title: "Discovery Meeting", desc: "We listen first — what's broken, what's manual, what's costing your business time or money." },
-  { num: "02", icon: "🔬", title: "Research & Analysis", desc: "Deep-dive into your workflows, competitors and industry before recommending anything." },
-  { num: "03", icon: "🗺️", title: "Technology Roadmap", desc: "A clear plan: what to build, in what order, and exactly why — no jargon, just clarity." },
-  { num: "04", icon: "⚒️", title: "Development", desc: "Our team builds against the agreed roadmap with weekly check-ins and full visibility." },
-  { num: "05", icon: "🚀", title: "Deployment", desc: "We launch, configure and train your team so adoption is immediate." },
-  { num: "06", icon: "🔁", title: "Continuous IT Support", desc: "We stay on as your technology partner — improvements, maintenance and growth, ongoing." },
+  { num: "01", title: "Discovery Meeting", desc: "We listen first — what's broken, what's manual, what's costing your business time or money." },
+  { num: "02", title: "Research & Analysis", desc: "Deep-dive into your workflows, competitors and industry before recommending anything." },
+  { num: "03", title: "Technology Roadmap", desc: "A clear plan: what to build, in what order, and exactly why — no jargon, just clarity." },
+  { num: "04", title: "Development", desc: "Our team builds against the agreed roadmap with weekly check-ins and full visibility." },
+  { num: "05", title: "Deployment", desc: "We launch, configure and train your team so adoption is immediate." },
+  { num: "06", title: "Continuous IT Support", desc: "We stay on as your technology partner — improvements, maintenance and growth, ongoing." },
 ];
 
 const industries = [
-  { icon: "🌾", label: "Agriculture" },
-  { icon: "🏭", label: "Manufacturing" },
-  { icon: "🎓", label: "Education" },
-  { icon: "🏥", label: "Healthcare" },
-  { icon: "🏘️", label: "Real Estate" },
-  { icon: "🛍️", label: "Retail" },
-  { icon: "🚚", label: "Logistics" },
-  { icon: "🚀", label: "Startups" },
-  { icon: "💼", label: "Professional Services" },
+  "Agriculture", "Manufacturing", "Education",
+  "Healthcare", "Real Estate", "Retail",
+  "Logistics", "Startups", "Professional Services",
 ];
 
 const itRoles = [
-  { role: "Senior Developer", cost: "₹8–15L/yr", icon: "🧑‍💻" },
-  { role: "UI/UX Designer", cost: "₹5–10L/yr", icon: "🎨" },
-  { role: "SEO Expert", cost: "₹4–8L/yr", icon: "🔍" },
-  { role: "Project Manager", cost: "₹8–12L/yr", icon: "📋" },
-  { role: "AI Engineer", cost: "₹12–20L/yr", icon: "🤖" },
-  { role: "DevOps Engineer", cost: "₹10–18L/yr", icon: "☁️" },
+  { role: "Senior Developer", cost: "₹8–15L/yr" },
+  { role: "UI/UX Designer", cost: "₹5–10L/yr" },
+  { role: "SEO Expert", cost: "₹4–8L/yr" },
+  { role: "Project Manager", cost: "₹8–12L/yr" },
+  { role: "AI Engineer", cost: "₹12–20L/yr" },
+  { role: "DevOps Engineer", cost: "₹10–18L/yr" },
 ];
 
 // ── COMPONENT ─────────────────────────────────────────────────────────────────
@@ -191,13 +178,11 @@ export default function HomePage() {
             transition={{ duration: 0.6, delay: 0.7 }}
             className="flex flex-wrap items-center justify-center gap-4 mb-16"
           >
-            <Link href="/contact" className="btn-primary px-8 py-4 rounded-xl text-base font-semibold relative z-10 flex items-center gap-2">
-              <span>Book Free Consultation</span>
-              <ArrowRight size={16} />
+            <Link href="/contact" className="btn-primary px-8 py-4 rounded-xl text-base font-semibold relative z-10">
+              Book Free Consultation &rarr;
             </Link>
-            <Link href="/services" className="btn-outline px-8 py-4 rounded-xl text-base font-semibold flex items-center gap-2">
-              <span>Explore Services</span>
-              <ChevronRight size={16} />
+            <Link href="/services" className="btn-outline px-8 py-4 rounded-xl text-base font-semibold">
+              Explore Services
             </Link>
           </motion.div>
 
@@ -258,16 +243,14 @@ export default function HomePage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
             {problems.map((p, i) => (
               <Reveal key={p.text} delay={i * 0.07}>
-                <div className="glass-card glass-card-hover rounded-2xl p-5 flex items-start gap-4 cursor-default">
-                  <span className="text-2xl mt-0.5">{p.icon}</span>
+                <div className="glass-card glass-card-hover rounded-2xl p-5 cursor-default">
                   <p className="text-sm text-soft leading-relaxed">{p.text}</p>
                 </div>
               </Reveal>
             ))}
             {/* Solution card */}
             <Reveal delay={0.5}>
-              <div className="glass-card rounded-2xl p-5 border-teal/30 bg-gradient-to-br from-teal/10 to-transparent flex items-start gap-4 col-span-1 sm:col-span-2 lg:col-span-1">
-                <Zap size={22} className="text-teal-bright mt-0.5 shrink-0" />
+              <div className="glass-card rounded-2xl p-5 border-teal/30 bg-gradient-to-br from-teal/10 to-transparent col-span-1 sm:col-span-2 lg:col-span-1">
                 <p className="text-sm text-soft leading-relaxed font-medium">
                   Mulsetu solves all of this — under one roof, one team, one point of contact.
                 </p>
@@ -309,11 +292,10 @@ export default function HomePage() {
                 <Link href={s.href} className="block group">
                   <div className={`glass-card glass-card-hover rounded-2xl p-7 h-full bg-gradient-to-br ${s.color} relative overflow-hidden`}>
                     {/* Arrow */}
-                    <div className="absolute top-5 right-5 w-8 h-8 rounded-full border border-white/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:border-teal/40 group-hover:bg-teal/10 translate-x-2 group-hover:translate-x-0">
-                      <ArrowRight size={14} className="text-teal-bright" />
+                    <div className="absolute top-5 right-5 opacity-0 group-hover:opacity-100 transition-all duration-300 text-teal-bright text-sm translate-x-2 group-hover:translate-x-0">
+                      &rarr;
                     </div>
 
-                    <span className="text-3xl mb-4 block">{s.icon}</span>
                     <h3 className="font-display font-bold text-lg mb-3 group-hover:text-teal-bright transition-colors">
                       {s.title}
                     </h3>
@@ -334,8 +316,7 @@ export default function HomePage() {
           <Reveal delay={0.3}>
             <div className="text-center mt-10">
               <Link href="/services" className="btn-outline px-8 py-3.5 rounded-xl inline-flex items-center gap-2 text-sm font-semibold">
-                View All Services
-                <ArrowRight size={14} />
+                View All Services &rarr;
               </Link>
             </div>
           </Reveal>
@@ -361,8 +342,7 @@ export default function HomePage() {
                   dealing with coordination gaps — get one unified team through Mulsetu.
                 </p>
                 <Link href="/dedicated-it-team" className="btn-primary px-7 py-3.5 rounded-xl inline-flex items-center gap-2 text-sm font-semibold">
-                  Learn How It Works
-                  <ArrowRight size={14} />
+                  Learn How It Works &rarr;
                 </Link>
               </Reveal>
             </div>
@@ -376,10 +356,7 @@ export default function HomePage() {
                   <div className="space-y-2">
                     {itRoles.map((r) => (
                       <div key={r.role} className="flex items-center justify-between py-2 border-b border-white/[0.04] last:border-0">
-                        <div className="flex items-center gap-3">
-                          <span className="text-base opacity-40">{r.icon}</span>
-                          <span className="text-sm text-muted line-through opacity-50">{r.role}</span>
-                        </div>
+                        <span className="text-sm text-muted line-through opacity-50">{r.role}</span>
                         <span className="text-xs text-muted/40 font-mono">{r.cost}</span>
                       </div>
                     ))}
@@ -403,7 +380,7 @@ export default function HomePage() {
                       "Business consulting",
                     ].map((item) => (
                       <div key={item} className="flex items-center gap-2">
-                        <CheckCircle2 size={14} className="text-teal-bright shrink-0" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-teal-bright shrink-0" />
                         <span className="text-xs text-soft">{item}</span>
                       </div>
                     ))}
@@ -438,9 +415,6 @@ export default function HomePage() {
                   <div className="font-display font-bold text-5xl text-teal/10 mb-4 leading-none group-hover:text-teal/20 transition-colors">
                     {step.num}
                   </div>
-                  <div className="absolute top-6 right-6 text-2xl opacity-40 group-hover:opacity-70 transition-opacity">
-                    {step.icon}
-                  </div>
                   <h3 className="font-display font-bold text-lg mb-3">{step.title}</h3>
                   <p className="text-sm text-muted leading-relaxed">{step.desc}</p>
                 </div>
@@ -451,8 +425,7 @@ export default function HomePage() {
           <Reveal delay={0.3}>
             <div className="text-center mt-10">
               <Link href="/process" className="btn-outline px-8 py-3.5 rounded-xl inline-flex items-center gap-2 text-sm font-semibold">
-                See Full Process Details
-                <ArrowRight size={14} />
+                See Full Process Details &rarr;
               </Link>
             </div>
           </Reveal>
@@ -474,14 +447,13 @@ export default function HomePage() {
 
           <div className="flex flex-wrap justify-center gap-3">
             {industries.map((ind, i) => (
-              <Reveal key={ind.label} delay={i * 0.05}>
+              <Reveal key={ind} delay={i * 0.05}>
                 <Link href="/industries">
                   <motion.div
                     whileHover={{ scale: 1.06, y: -3 }}
-                    className="glass-card rounded-full px-5 py-3 flex items-center gap-2.5 text-sm font-medium text-soft hover:text-white hover:border-teal/30 transition-colors cursor-pointer"
+                    className="glass-card rounded-full px-5 py-3 text-sm font-medium text-soft hover:text-white hover:border-teal/30 transition-colors cursor-pointer"
                   >
-                    <span className="text-lg">{ind.icon}</span>
-                    {ind.label}
+                    {ind}
                   </motion.div>
                 </Link>
               </Reveal>
@@ -507,14 +479,9 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {whyPoints.map((w, i) => (
               <Reveal key={w.title} delay={i * 0.08}>
-                <div className="glass-card glass-card-hover rounded-2xl p-6 flex gap-4">
-                  <div className="w-11 h-11 rounded-xl bg-teal/10 border border-teal/20 flex items-center justify-center text-xl shrink-0">
-                    {w.icon}
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-1.5">{w.title}</h3>
-                    <p className="text-sm text-muted leading-relaxed">{w.desc}</p>
-                  </div>
+                <div className="glass-card glass-card-hover rounded-2xl p-6">
+                  <h3 className="font-semibold mb-2">{w.title}</h3>
+                  <p className="text-sm text-muted leading-relaxed">{w.desc}</p>
                 </div>
               </Reveal>
             ))}
@@ -576,9 +543,8 @@ export default function HomePage() {
               or complete digital transformation — our team is ready.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4 mb-10">
-              <Link href="/contact" className="btn-primary px-10 py-4 rounded-xl text-lg font-semibold flex items-center gap-2">
-                Book Free Strategy Session
-                <ArrowRight size={18} />
+              <Link href="/contact" className="btn-primary px-10 py-4 rounded-xl text-lg font-semibold">
+                Book Free Strategy Session &rarr;
               </Link>
               <a href="https://wa.me/91XXXXXXXXXX" className="btn-outline px-10 py-4 rounded-xl text-lg font-semibold flex items-center gap-2">
                 💬 Chat on WhatsApp

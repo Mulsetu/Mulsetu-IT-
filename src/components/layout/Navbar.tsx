@@ -3,15 +3,15 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, Menu, X, Zap } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
 
 const services = [
-  { label: "AI & Automation", href: "/services/ai-automation", icon: "🤖", desc: "Chatbots, workflows, AI agents" },
-  { label: "Website Development", href: "/services/website-development", icon: "🌐", desc: "Next.js, corporate, e-commerce" },
-  { label: "SaaS Development", href: "/services/saas-development", icon: "☁️", desc: "Multi-tenant platforms, portals" },
-  { label: "Custom Software & ERP", href: "/services/custom-software", icon: "🏭", desc: "ERP, billing, inventory, CRM" },
-  { label: "Mobile Apps", href: "/services/mobile-apps", icon: "📱", desc: "Android, iOS, Flutter" },
-  { label: "Digital Growth & SEO", href: "/services/digital-growth", icon: "📈", desc: "SEO, performance, lead gen" },
+  { label: "AI & Automation", href: "/services/ai-automation", desc: "Chatbots, workflows, AI agents" },
+  { label: "Website Development", href: "/services/website-development", desc: "Next.js, corporate, e-commerce" },
+  { label: "SaaS Development", href: "/services/saas-development", desc: "Multi-tenant platforms, portals" },
+  { label: "Custom Software & ERP", href: "/services/custom-software", desc: "ERP, billing, inventory, CRM" },
+  { label: "Mobile Apps", href: "/services/mobile-apps", desc: "Android, iOS, Flutter" },
+  { label: "Digital Growth & SEO", href: "/services/digital-growth", desc: "SEO, performance, lead gen" },
 ];
 
 export default function Navbar() {
@@ -44,9 +44,6 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-teal to-teal-dim flex items-center justify-center glow-teal-sm">
-              <Zap size={16} className="text-white" fill="white" />
-            </div>
             <span className="font-display font-bold text-xl tracking-tight">
               <span className="gradient-text">Mul</span>
               <span className="text-white">setu</span>
@@ -86,7 +83,6 @@ export default function Navbar() {
                             href={s.href}
                             className="flex items-start gap-3 p-3 rounded-xl hover:bg-white/[0.04] transition-colors group"
                           >
-                            <span className="text-xl mt-0.5">{s.icon}</span>
                             <div>
                               <div className="text-sm font-semibold text-white group-hover:text-teal-bright transition-colors">
                                 {s.label}
@@ -167,10 +163,9 @@ export default function Navbar() {
                 <Link
                   key={s.href}
                   href={s.href}
-                  className="flex items-center gap-3 p-3 rounded-xl hover:bg-white/[0.05] transition-colors"
+                  className="p-3 rounded-xl hover:bg-white/[0.05] transition-colors font-medium block"
                 >
-                  <span className="text-xl">{s.icon}</span>
-                  <span className="font-medium">{s.label}</span>
+                  {s.label}
                 </Link>
               ))}
               <div className="border-t border-white/[0.06] my-3" />
