@@ -4,8 +4,8 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { Html } from "@react-three/drei";
 import * as THREE from "three";
 import { useRouter } from "next/navigation";
-import { useScroll, MotionValue } from "framer-motion";
-import { Bot, Globe, Cloud, Code, Smartphone, LineChart } from "lucide-react";
+import { useScroll, useSpring, useTransform, motion, MotionValue } from "framer-motion";
+import { Bot, Globe, Cloud, Code, Smartphone, LineChart, Database } from "lucide-react";
 
 const services = [
   {
@@ -62,6 +62,15 @@ const services = [
     color: "#06b6d4",
     icon: LineChart
   },
+  {
+    title: "Data Scraping & Research",
+    subtitle: "Turn Public Data Into Business Intelligence.",
+    desc: "We collect and structure publicly available data — business directories, government portals, market pricing and competitor intelligence — fully legally, respecting robots.txt, rate limits and privacy law.",
+    href: "/services/data-scraping",
+    cta: "Discuss Your Data Needs",
+    color: "#acedff",
+    icon: Database
+  },
 ];
 
 const CentralSphere = ({ scrollProgress, total }: { scrollProgress: MotionValue<number>; total: number }) => {
@@ -78,18 +87,18 @@ const CentralSphere = ({ scrollProgress, total }: { scrollProgress: MotionValue<
       const p = scrollProgress.get();
       const safeP = Math.min(p, 0.9999);
       const localP = (safeP * total) % 1;
-      
+
       let opacity = 0;
-      if (localP <= 0.10) {
+      if (localP <= 0.05) {
         opacity = 1;
-      } else if (localP > 0.10 && localP <= 0.20) {
-        opacity = 1 - ((localP - 0.10) / 0.10);
-      } else if (localP > 0.20 && localP <= 0.90) {
+      } else if (localP > 0.05 && localP <= 0.22) {
+        opacity = 1 - ((localP - 0.05) / 0.17);
+      } else if (localP > 0.22 && localP <= 0.83) {
         opacity = 0;
-      } else if (localP > 0.90) {
-        opacity = (localP - 0.90) / 0.10;
+      } else if (localP > 0.83) {
+        opacity = (localP - 0.83) / 0.17;
       }
-      
+
       htmlRef.current.style.opacity = opacity.toString();
     }
   });
@@ -144,13 +153,14 @@ const OrbitingSphere = ({ index, service, total, scrollProgress, isMobile }: { i
   const Icon = service.icon;
   
   // Distinct, widely varying 3D angles for each orbit to create a chaotic 3D gyroscope look
-  const tiltX = [Math.PI / 4, -Math.PI / 5, Math.PI / 3, -Math.PI / 6, Math.PI / 5, -Math.PI / 4][index];
-  const tiltY = [Math.PI / 6, Math.PI / 3, -Math.PI / 4, Math.PI / 2, -Math.PI / 3, 0][index];
-  const tiltZ = [0, Math.PI / 8, -Math.PI / 6, Math.PI / 4, Math.PI / 5, -Math.PI / 3][index];
+  const tiltX = [Math.PI / 4, -Math.PI / 5, Math.PI / 3, -Math.PI / 6, Math.PI / 5, -Math.PI / 4, Math.PI / 7][index];
+  const tiltY = [Math.PI / 6, Math.PI / 3, -Math.PI / 4, Math.PI / 2, -Math.PI / 3, 0, -Math.PI / 8][index];
+  const tiltZ = [0, Math.PI / 8, -Math.PI / 6, Math.PI / 4, Math.PI / 5, -Math.PI / 3, Math.PI / 3][index];
   
   // Pre-allocate objects for useFrame to avoid GC pauses
   const vec = useMemo(() => new THREE.Vector3(), []);
   const euler = useMemo(() => new THREE.Euler(), []);
+  const smoothScaleRef = useRef(1);
 
   useFrame((state, delta) => {
     if (!groupRef.current || !meshRef.current) return;
@@ -168,19 +178,20 @@ const OrbitingSphere = ({ index, service, total, scrollProgress, isMobile }: { i
     let textOpacity = 0;
 
     if (cycle === index) {
-      if (localP >= 0.10 && localP <= 0.20) {
-        moveProgress = (localP - 0.10) / 0.10;
-      } else if (localP > 0.20 && localP <= 0.90) {
+      // Wider entry (5%→22%) and exit (83%→100%) windows for smoother feel
+      if (localP >= 0.05 && localP <= 0.22) {
+        moveProgress = (localP - 0.05) / 0.17;
+      } else if (localP > 0.22 && localP <= 0.83) {
         moveProgress = 1;
-        if (localP >= 0.25 && localP <= 0.35) {
-          textOpacity = (localP - 0.25) / 0.10;
-        } else if (localP > 0.35 && localP <= 0.80) {
+        if (localP >= 0.28 && localP <= 0.38) {
+          textOpacity = (localP - 0.28) / 0.10;
+        } else if (localP > 0.38 && localP <= 0.77) {
           textOpacity = 1;
-        } else if (localP > 0.80 && localP <= 0.90) {
-          textOpacity = 1 - ((localP - 0.80) / 0.10);
+        } else if (localP > 0.77 && localP <= 0.83) {
+          textOpacity = 1 - ((localP - 0.77) / 0.06);
         }
-      } else if (localP > 0.90 && localP <= 1.0) {
-        moveProgress = 1 - ((localP - 0.90) / 0.10);
+      } else if (localP > 0.83 && localP <= 1.0) {
+        moveProgress = 1 - ((localP - 0.83) / 0.17);
       }
     }
 
@@ -209,8 +220,10 @@ const OrbitingSphere = ({ index, service, total, scrollProgress, isMobile }: { i
 
     groupRef.current.position.copy(vec);
 
-    const scale = THREE.MathUtils.lerp(1, 2.5, easedMove);
-    groupRef.current.scale.set(scale, scale, scale);
+    // Lerp scale for smooth zoom-in/out instead of snapping
+    const targetScale = THREE.MathUtils.lerp(1, 2.5, easedMove);
+    smoothScaleRef.current = THREE.MathUtils.lerp(smoothScaleRef.current, targetScale, Math.min(delta * 7, 1));
+    groupRef.current.scale.setScalar(smoothScaleRef.current);
 
     if (htmlRef.current) {
       htmlRef.current.style.opacity = textOpacity.toString();
@@ -220,7 +233,7 @@ const OrbitingSphere = ({ index, service, total, scrollProgress, isMobile }: { i
       if (isMobile) {
         xOffset = '-50%';
         const animY = THREE.MathUtils.lerp(15, 0, textOpacity);
-        yOffset = `calc(-50% + 140px + ${animY}px)`;
+        yOffset = `calc(-50% + 110px + ${animY}px)`;
       } else {
         xOffset = isLeft ? 'calc(-50% - 60px)' : 'calc(50% + 60px)';
         yOffset = `${THREE.MathUtils.lerp(15, 0, textOpacity)}px`;
@@ -289,7 +302,7 @@ const OrbitingSphere = ({ index, service, total, scrollProgress, isMobile }: { i
         >
           <div 
             ref={htmlRef}
-            className={`w-[290px] sm:w-[350px] md:w-[500px] glass-card p-5 md:p-8 rounded-2xl border-t border-l border-white/10 ${isMobile ? 'text-center' : (isLeft ? 'text-right' : 'text-left')}`}
+            className={`w-[min(290px,calc(100vw-40px))] sm:w-[350px] md:w-[500px] glass-card p-4 md:p-8 rounded-2xl border-t border-l border-white/10 ${isMobile ? 'text-center' : (isLeft ? 'text-right' : 'text-left')}`}
             style={{ 
               opacity: 0, 
               pointerEvents: 'none',
@@ -374,8 +387,19 @@ export default function ServicesOrbit() {
     offset: ["start start", "end end"]
   });
 
+  // Spring-smooth the scroll progress so the 3D animation feels physically weighted
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 80,
+    damping: 30,
+    restDelta: 0.001,
+  });
+
+  // Intro overlay fades out over the first ~2% of the section scroll (≈12 vh)
+  // so the full viewport becomes the animation as soon as scrolling starts
+  const introOpacity = useTransform(scrollYProgress, [0, 0.025], [1, 0]);
+
   return (
-    <div ref={containerRef} className="relative w-full" style={{ height: '600vh' }} id="services-orbit">
+    <div ref={containerRef} className="relative w-full" style={{ height: '700vh' }} id="services-orbit">
       {/* SEO hidden fallback for search engines since 3D content is opaque to crawlers */}
       <div className="sr-only">
         <h2>Our Services</h2>
@@ -391,22 +415,42 @@ export default function ServicesOrbit() {
         </ul>
       </div>
 
-      {/* Sticky container that holds the canvas while we scroll through the 600vh */}
-      <div className="sticky top-0 h-[100svh] w-full overflow-hidden bg-gradient-to-b from-deep via-transparent to-deep">
-        
-        {/* Soft transition overlay at bottom to merge seamlessly with next section */}
-        <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-deep to-transparent z-[10] pointer-events-none" />
+      {/* Sticky container — full viewport for the 3D animation */}
+      <div className="sticky top-0 h-[100svh] w-full overflow-hidden">
 
-        {/* Instruction overlay */}
-        <div className="absolute top-32 md:top-40 left-1/2 -translate-x-1/2 z-10 text-center pointer-events-none w-full px-4">
-          <span className="section-tag mb-4 inline-flex shadow-xl shadow-[#4cd7f6]/10">Our Expertise</span>
-          <h2 className="font-display font-bold text-2xl md:text-4xl mt-2 text-white/95 drop-shadow-2xl">
+        {/* Full-screen gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-b from-deep via-transparent to-deep pointer-events-none" />
+
+        {/* Soft transition at bottom to blend into the next section */}
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-deep to-transparent z-[10] pointer-events-none" />
+
+        {/* Intro overlay — visible on arrival, fades away as soon as scrolling starts */}
+        <motion.div
+          style={{ opacity: introOpacity }}
+          className="absolute inset-x-0 top-0 z-20 flex flex-col items-center pt-16 md:pt-20 pointer-events-none"
+        >
+          <span className="section-tag mb-3 inline-flex shadow-xl shadow-[#4cd7f6]/10">Our Expertise</span>
+          <h2 className="font-display font-bold text-2xl md:text-4xl mt-1 text-white/95 drop-shadow-2xl">
             Our Services
           </h2>
-        </div>
+        </motion.div>
 
+        {/* Scroll hint — fades out with the intro overlay */}
+        <motion.div
+          style={{ opacity: introOpacity }}
+          className="absolute inset-x-0 bottom-24 z-20 flex flex-col items-center gap-2 pointer-events-none"
+        >
+          <span className="text-[10px] tracking-[0.2em] uppercase text-teal-bright/50">Scroll to explore</span>
+          <motion.div
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 1.4, repeat: Infinity, ease: "easeInOut" }}
+            className="w-px h-8 bg-gradient-to-b from-teal/40 to-transparent"
+          />
+        </motion.div>
+
+        {/* 3D Canvas — occupies the entire sticky viewport */}
         <Canvas camera={{ position: [0, 0, 8], fov: 45 }}>
-          <Scene scrollProgress={scrollYProgress} isMobile={isMobile} />
+          <Scene scrollProgress={smoothProgress} isMobile={isMobile} />
         </Canvas>
       </div>
     </div>

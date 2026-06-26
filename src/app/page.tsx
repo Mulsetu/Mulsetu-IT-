@@ -65,6 +65,7 @@ const problems = [
   { text: "No automation in operations" },
   { text: "Too many disconnected tools" },
   { text: "No clarity on what technology to build" },
+  { text: "No visibility into business data or performance" },
 ];
 
 const whyPoints = [
@@ -130,8 +131,9 @@ export default function HomePage() {
             className="mb-6 flex justify-center"
           >
             <span className="section-tag">
-              <span className="w-2 h-2 rounded-full bg-teal-bright animate-pulse inline-block" />
-              Technology &amp; AI Partner for Growing Businesses
+              <span className="w-2 h-2 rounded-full bg-teal-bright animate-pulse inline-block shrink-0" />
+              <span className="hidden sm:inline">Technology &amp; AI Partner for Growing Businesses</span>
+              <span className="sm:hidden">Technology &amp; AI Partner</span>
             </span>
           </motion.div>
 
@@ -140,16 +142,20 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.35, ease: [0.23, 1, 0.32, 1] }}
-            className="font-display font-bold text-5xl md:text-7xl leading-[1.05] tracking-tight mb-6 text-balance"
+            className="font-display font-bold text-4xl md:text-6xl lg:text-7xl leading-[1.08] tracking-tight mb-6"
           >
             Planning to Go Digital<br />
-            but Don&apos;t Know{" "}
-            <span className="gradient-text text-glow">
+            but Don&apos;t Know
+            <span
+              className="gradient-text text-glow"
+              style={{ display: 'block', minHeight: '1.15em' }}
+            >
               <TypeAnimation
                 sequence={["Where to Start?", 2000, "What to Build?", 2000, "Who to Trust?", 2000]}
                 wrapper="span"
                 speed={45}
                 repeat={Infinity}
+                cursor={false}
               />
             </span>
           </motion.h1>
@@ -159,7 +165,7 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.55, ease: [0.23, 1, 0.32, 1] }}
-            className="text-lg md:text-xl text-muted max-w-2xl mx-auto leading-relaxed mb-10"
+            className="text-base sm:text-lg md:text-xl text-muted max-w-2xl mx-auto leading-relaxed mb-10 px-2 sm:px-0"
           >
             We help businesses build software, automate operations, and manage technology —
             without the cost or complexity of hiring an entire IT department.
@@ -170,12 +176,12 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.7 }}
-            className="flex flex-wrap items-center justify-center gap-4 mb-16"
+            className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-16"
           >
-            <Link href="/contact" className="btn-primary px-8 py-4 rounded-xl text-base font-semibold relative z-10">
+            <Link href="/contact" className="btn-primary w-full sm:w-auto px-8 py-4 rounded-xl text-base font-semibold relative z-10 text-center">
               Book Free Consultation &rarr;
             </Link>
-            <Link href="/services" className="btn-outline px-8 py-4 rounded-xl text-base font-semibold">
+            <Link href="/services" className="btn-outline w-full sm:w-auto px-8 py-4 rounded-xl text-base font-semibold text-center">
               Explore Services
             </Link>
           </motion.div>
@@ -206,13 +212,13 @@ export default function HomePage() {
       </section>
 
       {/* ── PROBLEM ── */}
-      <section className="py-28 relative">
+      <section className="py-16 md:py-28 relative">
         <div className="absolute inset-0 bg-gradient-to-b from-deep via-navy/50 to-deep" />
         <div className="relative max-w-6xl mx-auto px-6">
           <Reveal>
             <div className="text-center mb-16">
               <span className="section-tag mb-4 inline-flex">The Reality for Most Businesses</span>
-              <h2 className="font-display font-bold text-4xl md:text-5xl mt-4 mb-5">
+              <h2 className="font-display font-bold text-3xl md:text-5xl mt-4 mb-5">
                 Are You Facing <span className="gradient-text">These Challenges?</span>
               </h2>
               <p className="text-muted text-lg max-w-xl mx-auto">
@@ -221,23 +227,28 @@ export default function HomePage() {
             </div>
           </Reveal>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+          {/* 8 problem cards — divides evenly into 4×2 on desktop, 2×4 on tablet, stacked on mobile */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
             {problems.map((p, i) => (
-              <Reveal key={p.text} delay={i * 0.07}>
-                <div className="glass-card glass-card-hover rounded-2xl p-5 cursor-default">
+              <Reveal key={p.text} delay={i * 0.06}>
+                <div className="glass-card glass-card-hover rounded-2xl p-5 h-full cursor-default flex items-start gap-3">
+                  <span className="mt-[3px] shrink-0 w-4 h-4 rounded-full border border-white/15 bg-white/5 flex items-center justify-center">
+                    <span className="text-white/30 text-[9px] leading-none font-bold">✕</span>
+                  </span>
                   <p className="text-sm text-soft leading-relaxed">{p.text}</p>
                 </div>
               </Reveal>
             ))}
-            {/* Solution card */}
-            <Reveal delay={0.5}>
-              <div className="glass-card rounded-2xl p-5 border-teal/30 bg-gradient-to-br from-teal/10 to-transparent col-span-1 sm:col-span-2 lg:col-span-1">
-                <p className="text-sm text-soft leading-relaxed font-medium">
-                  Mulsetu solves all of this — under one roof, one team, one point of contact.
-                </p>
-              </div>
-            </Reveal>
           </div>
+
+          {/* Solution banner — full-width, visually distinct from the problem grid */}
+          <Reveal delay={0.4}>
+            <div className="glass-card rounded-2xl p-6 md:p-8 border-teal/30 bg-gradient-to-br from-teal/8 to-transparent text-center">
+              <p className="text-base md:text-lg text-soft leading-relaxed font-medium max-w-2xl mx-auto">
+                <span className="text-teal-bright font-semibold">Mulsetu</span> solves all of this — one roof, one team, one point of contact.
+              </p>
+            </div>
+          </Reveal>
 
           <Reveal delay={0.2}>
             <div className="glass-card rounded-2xl p-8 md:p-10 border-teal/20 bg-gradient-to-br from-teal/8 to-transparent text-center">
@@ -252,16 +263,16 @@ export default function HomePage() {
       </section>
 
       {/* ── DEDICATED IT TEAM ── */}
-      <section className="py-28 relative overflow-hidden">
+      <section className="py-16 md:py-28 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-navy to-deep" />
         <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-teal/5 blur-3xl pointer-events-none" />
 
         <div className="relative max-w-6xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <div>
               <Reveal>
                 <span className="section-tag mb-4 inline-flex">The Smarter Way</span>
-                <h2 className="font-display font-bold text-4xl md:text-5xl mt-4 mb-6">
+                <h2 className="font-display font-bold text-3xl md:text-5xl mt-4 mb-6">
                   Don&apos;t Hire an Entire<br />
                   <span className="gradient-text">IT Department</span>
                 </h2>
@@ -321,13 +332,13 @@ export default function HomePage() {
       </section>
 
       {/* ── PROCESS ── */}
-      <section className="py-28 relative">
+      <section className="py-16 md:py-28 relative">
         <div className="absolute inset-0 bg-grid opacity-20" />
         <div className="relative max-w-6xl mx-auto px-6">
           <Reveal>
             <div className="text-center mb-16">
               <span className="section-tag mb-4 inline-flex">How We Work</span>
-              <h2 className="font-display font-bold text-4xl md:text-5xl mt-4 mb-5">
+              <h2 className="font-display font-bold text-3xl md:text-5xl mt-4 mb-5">
                 Six Steps. <span className="gradient-text">Zero Surprises.</span>
               </h2>
               <p className="text-muted text-lg max-w-xl mx-auto">
@@ -361,13 +372,13 @@ export default function HomePage() {
       </section>
 
       {/* ── INDUSTRIES ── */}
-      <section className="py-20 relative overflow-hidden">
+      <section className="py-12 md:py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-navy/60 to-deep" />
         <div className="relative max-w-6xl mx-auto px-6">
           <Reveal>
             <div className="text-center mb-12">
               <span className="section-tag mb-4 inline-flex">Who We Serve</span>
-              <h2 className="font-display font-bold text-4xl md:text-5xl mt-4 mb-5">
+              <h2 className="font-display font-bold text-3xl md:text-5xl mt-4 mb-5">
                 Built for <span className="gradient-text">Every Sector</span>
               </h2>
             </div>
@@ -391,13 +402,13 @@ export default function HomePage() {
       </section>
 
       {/* ── WHY MULSETU ── */}
-      <section className="py-28 relative">
+      <section className="py-16 md:py-28 relative">
         <div className="absolute inset-0 bg-grid opacity-15" />
         <div className="relative max-w-6xl mx-auto px-6">
           <Reveal>
             <div className="text-center mb-16">
               <span className="section-tag mb-4 inline-flex">Why Mulsetu</span>
-              <h2 className="font-display font-bold text-4xl md:text-5xl mt-4 mb-5">
+              <h2 className="font-display font-bold text-3xl md:text-5xl mt-4 mb-5">
                 Not Just Developers.<br />
                 <span className="gradient-text">Your Technology Partner.</span>
               </h2>
@@ -418,29 +429,29 @@ export default function HomePage() {
       </section>
 
       {/* ── FINAL CTA ── */}
-      <section className="py-32 relative overflow-hidden">
+      <section className="py-20 md:py-32 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-deep via-navy to-deep" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-teal/8 rounded-full blur-[100px] pointer-events-none" />
 
         <div className="relative max-w-4xl mx-auto px-6 text-center">
           <Reveal>
             <span className="section-tag mb-6 inline-flex">Ready to Start?</span>
-            <h2 className="font-display font-bold text-5xl md:text-6xl mb-6 leading-tight">
+            <h2 className="font-display font-bold text-3xl sm:text-5xl md:text-6xl mb-6 leading-tight">
               Need a <span className="gradient-text text-glow">Technology Partner?</span>
             </h2>
-            <p className="text-muted text-xl leading-relaxed max-w-2xl mx-auto mb-10">
+            <p className="text-muted text-base sm:text-lg md:text-xl leading-relaxed max-w-2xl mx-auto mb-10">
               Whether you need a website, ERP, SaaS platform, AI automation, mobile app,
               or complete digital transformation — our team is ready.
             </p>
-            <div className="flex flex-wrap items-center justify-center gap-4 mb-10">
-              <Link href="/contact" className="btn-primary px-10 py-4 rounded-xl text-lg font-semibold">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-10">
+              <Link href="/contact" className="btn-primary w-full sm:w-auto px-8 sm:px-10 py-4 rounded-xl text-base sm:text-lg font-semibold text-center">
                 Book Free Strategy Session &rarr;
               </Link>
-              <a href="https://wa.me/91XXXXXXXXXX" className="btn-outline px-10 py-4 rounded-xl text-lg font-semibold flex items-center gap-2">
+              <a href="https://wa.me/91XXXXXXXXXX" className="btn-outline w-full sm:w-auto px-8 sm:px-10 py-4 rounded-xl text-base sm:text-lg font-semibold flex items-center justify-center gap-2">
                 💬 Chat on WhatsApp
               </a>
             </div>
-            <p className="text-sm text-muted/60">
+            <p className="text-xs sm:text-sm text-muted/60">
               No commitment required · 30-minute call · Get a clear technology roadmap
             </p>
           </Reveal>

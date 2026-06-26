@@ -9,6 +9,7 @@ const services = [
   { label: "Custom Software & ERP", href: "/services/custom-software" },
   { label: "Mobile Apps", href: "/services/mobile-apps" },
   { label: "Digital Growth & SEO", href: "/services/digital-growth" },
+  { label: "Data Scraping & Research", href: "/services/data-scraping" },
 ];
 
 const company = [

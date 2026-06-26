@@ -1,19 +1,47 @@
 "use client";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 export default function WhatsAppFloat() {
+  const [appeared, setAppeared] = useState(false);
+  const [inOrbSection, setInOrbSection] = useState(false);
+
+  // Delay the initial entrance so it doesn't pop in immediately
+  useEffect(() => {
+    const timer = setTimeout(() => setAppeared(true), 2000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Hide while the 3D services animation is in view.
+  // The section is dynamically imported so we find it lazily on scroll.
+  useEffect(() => {
+    let orbEl: HTMLElement | null = null;
+
+    const onScroll = () => {
+      if (!orbEl) orbEl = document.getElementById("services-orbit");
+      if (!orbEl) return;
+
+      const rect = orbEl.getBoundingClientRect();
+      setInOrbSection(rect.top <= 0 && rect.bottom > 0);
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const isVisible = appeared && !inOrbSection;
+
   return (
     <motion.a
       href="https://wa.me/91XXXXXXXXXX"
       target="_blank"
       rel="noopener noreferrer"
-      initial={{ scale: 0, opacity: 0 }}
-      animate={{ scale: 1, opacity: 1 }}
-      transition={{ delay: 2, type: "spring", stiffness: 200 }}
-      whileHover={{ scale: 1.12 }}
-      whileTap={{ scale: 0.95 }}
+      animate={{ scale: isVisible ? 1 : 0, opacity: isVisible ? 1 : 0 }}
+      transition={{ type: "spring", stiffness: 200, damping: 20 }}
+      whileHover={{ scale: isVisible ? 1.12 : 0 }}
+      whileTap={{ scale: isVisible ? 0.95 : 0 }}
       className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full flex items-center justify-center shadow-[0_8px_32px_rgba(37,211,102,0.4)]"
-      style={{ background: "#25D366" }}
+      style={{ background: "#25D366", pointerEvents: isVisible ? "auto" : "none" }}
       title="Chat on WhatsApp"
     >
       <motion.div
