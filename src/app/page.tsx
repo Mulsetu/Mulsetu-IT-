@@ -8,6 +8,7 @@ import { TypeAnimation } from "react-type-animation";
 
 // Load Three.js canvas client-side only
 const HeroCanvas = dynamic(() => import("@/components/three/HeroCanvas"), { ssr: false });
+const ServicesOrbit = dynamic(() => import("@/components/three/ServicesOrbit"), { ssr: false });
 
 // ── DATA ──────────────────────────────────────────────────────────────────────
 
@@ -178,27 +179,6 @@ export default function HomePage() {
               Explore Services
             </Link>
           </motion.div>
-
-          {/* Stats */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.9 }}
-            className="inline-flex flex-wrap justify-center gap-x-12 gap-y-6 px-10 py-6 glass-card rounded-2xl"
-          >
-            {[
-              { value: 6, suffix: "+", label: "Service Domains" },
-              { value: 9, suffix: "", label: "Industries Served" },
-              { value: 100, suffix: "%", label: "In-House Execution" },
-            ].map((stat) => (
-              <div key={stat.label} className="text-center">
-                <div className="font-display font-bold text-3xl gradient-text counter-num">
-                  <AnimatedCounter end={stat.value} suffix={stat.suffix} />
-                </div>
-                <div className="text-xs text-muted mt-1 tracking-wide">{stat.label}</div>
-              </div>
-            ))}
-          </motion.div>
         </div>
 
         {/* Scroll indicator */}
@@ -206,7 +186,7 @@ export default function HomePage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.8 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-[2] flex flex-col items-center gap-2"
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-[10] flex flex-col items-center gap-2"
         >
           <span className="text-xs text-muted/50 tracking-widest uppercase">Scroll</span>
           <motion.div
@@ -215,6 +195,14 @@ export default function HomePage() {
             className="w-px h-10 bg-gradient-to-b from-teal/40 to-transparent"
           />
         </motion.div>
+
+        {/* Soft transition to next section to remove any hard lines */}
+        <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-deep to-transparent z-[5] pointer-events-none" />
+      </section>
+
+      {/* ── SERVICES ── */}
+      <section className="relative w-full" id="services">
+        <ServicesOrbit />
       </section>
 
       {/* ── PROBLEM ── */}
@@ -258,59 +246,6 @@ export default function HomePage() {
                 AI automation, and digital transformation — all under one roof,
                 so you never have to figure it out alone.
               </p>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* ── SERVICES ── */}
-      <section className="py-28 relative" id="services">
-        <div className="absolute inset-0 bg-grid opacity-20" />
-        <div className="relative max-w-6xl mx-auto px-6">
-          <Reveal>
-            <div className="text-center mb-16">
-              <span className="section-tag mb-4 inline-flex">What We Build</span>
-              <h2 className="font-display font-bold text-4xl md:text-5xl mt-4 mb-5">
-                Everything Under <span className="gradient-text">One Roof</span>
-              </h2>
-              <p className="text-muted text-lg max-w-xl mx-auto">
-                Six domains of deep expertise. One unified team. No gaps.
-              </p>
-            </div>
-          </Reveal>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {services.map((s, i) => (
-              <Reveal key={s.title} delay={i * 0.08}>
-                <Link href={s.href} className="block group">
-                  <div className={`glass-card glass-card-hover rounded-2xl p-7 h-full bg-gradient-to-br ${s.color} relative overflow-hidden`}>
-                    {/* Arrow */}
-                    <div className="absolute top-5 right-5 opacity-0 group-hover:opacity-100 transition-all duration-300 text-teal-bright text-sm translate-x-2 group-hover:translate-x-0">
-                      &rarr;
-                    </div>
-
-                    <h3 className="font-display font-bold text-lg mb-3 group-hover:text-teal-bright transition-colors">
-                      {s.title}
-                    </h3>
-                    <p className="text-sm text-muted leading-relaxed mb-5">{s.desc}</p>
-                    <div className="flex flex-wrap gap-2">
-                      {s.tags.map((t) => (
-                        <span key={t} className="text-xs font-medium text-teal/80 bg-teal/8 border border-teal/15 rounded-md px-2.5 py-1">
-                          {t}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </Link>
-              </Reveal>
-            ))}
-          </div>
-
-          <Reveal delay={0.3}>
-            <div className="text-center mt-10">
-              <Link href="/services" className="btn-outline px-8 py-3.5 rounded-xl inline-flex items-center gap-2 text-sm font-semibold">
-                View All Services &rarr;
-              </Link>
             </div>
           </Reveal>
         </div>
