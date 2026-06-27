@@ -17,8 +17,9 @@ const company = [
   { label: "How We Work", href: "/process" },
   { label: "Dedicated IT Team", href: "/dedicated-it-team" },
   { label: "Industries", href: "/industries" },
-  { label: "Case Studies", href: "/case-studies" },
+  { label: "Our Work", href: "/our-work" },
   { label: "Our Products", href: "/products" },
+  { label: "Blog & Insights", href: "/blog" },
 ];
 
 const industries = [
@@ -48,9 +49,6 @@ export default function Footer() {
             <div className="flex flex-col gap-3">
               <a href="mailto:founder@mulsetu.com" className="text-sm text-muted hover:text-teal-bright transition-colors">
                 founder@mulsetu.com
-              </a>
-              <a href="https://wa.me/91XXXXXXXXXX" className="text-sm text-muted hover:text-teal-bright transition-colors">
-                WhatsApp Us
               </a>
             </div>
           </div>
@@ -100,9 +98,14 @@ export default function Footer() {
 
         {/* Bottom */}
         <div className="border-t border-white/[0.06] pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-xs text-muted">
-            © 2026 Mulsetu Agrotech Private Limited. All rights reserved.
-          </p>
+          <div className="flex flex-col gap-1">
+            <p className="text-xs text-muted">
+              © 2026 Mulsetu Agrotech Private Limited. All rights reserved.
+            </p>
+            <p className="text-xs text-muted/40">
+              Mulsetu is the technology division of Mulsetu Agrotech Pvt. Ltd.
+            </p>
+          </div>
           <p className="text-xs text-teal/60 italic font-display">
             "Think of us as your in-house IT team."
           </p>

@@ -1,13 +1,10 @@
-"use client";
 import type { Metadata } from "next";
 import { Inter, Syne, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import CursorGlow from "@/components/ui/CursorGlow";
-import WhatsAppFloat from "@/components/ui/WhatsAppFloat";
-import { AnimatePresence } from "framer-motion";
-import PageTransition from "@/components/ui/PageTransition";
+import ClientShell from "@/components/layout/ClientShell";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -29,6 +26,55 @@ const jetbrains = JetBrains_Mono({
   display: "swap",
 });
 
+export const metadata: Metadata = {
+  metadataBase: new URL("https://mulsetu.com"),
+  title: {
+    default: "Mulsetu — Your Dedicated IT Team & Technology Partner",
+    template: "%s | Mulsetu",
+  },
+  description:
+    "Mulsetu is your global technology and AI partner. We build software, automate operations, and manage technology end-to-end — so you don't have to hire an entire IT department. Serving businesses worldwide.",
+  keywords: [
+    "software development company",
+    "AI automation",
+    "ERP development",
+    "SaaS development",
+    "mobile app development",
+    "website development",
+    "digital growth",
+    "dedicated IT team",
+    "technology partner",
+    "custom software",
+    "AI consulting",
+    "digital transformation",
+    "tech outsourcing",
+    "product development",
+  ],
+  authors: [{ name: "Mulsetu" }],
+  creator: "Mulsetu",
+  openGraph: {
+    type: "website",
+    siteName: "Mulsetu",
+    title: "Mulsetu — Your Dedicated IT Team & Technology Partner",
+    description:
+      "Mulsetu is your global technology and AI partner. We build software, automate operations, and manage technology — so you don't have to hire an entire IT department. Serving businesses worldwide.",
+    url: "https://mulsetu.com",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Mulsetu — Technology Partner" }],
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Mulsetu — Your Dedicated IT Team & Technology Partner",
+    description:
+      "We build software, automate operations, and manage technology — so you don't have to hire an entire IT department.",
+    images: ["/og-image.png"],
+  },
+  robots: { index: true, follow: true },
+  alternates: { canonical: "https://mulsetu.com" },
+  icons: { icon: "/favicon.svg" },
+  other: { "theme-color": "#05080f" },
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -37,57 +83,80 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${syne.variable} ${jetbrains.variable}`}>
       <head>
-        <title>Mulsetu — Your Dedicated IT Team & Technology Partner</title>
-        <meta name="description" content="Mulsetu is your dedicated technology and AI partner. We build software, automate operations, and manage technology — so you don't have to hire an entire IT department. Serving businesses across India." />
-        <meta name="keywords" content="IT company India, software development, AI automation, ERP development, SaaS development, mobile app development, website development, digital growth, dedicated IT team, technology partner India" />
-        <meta name="author" content="Mulsetu Agrotech Private Limited" />
-        <meta name="robots" content="index, follow" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#05080f" />
-
-        {/* Open Graph */}
-        <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="Mulsetu" />
-        <meta property="og:title" content="Mulsetu — Your Dedicated IT Team & Technology Partner" />
-        <meta property="og:description" content="Mulsetu is your dedicated technology and AI partner. We build software, automate operations, and manage technology — so you don't have to hire an entire IT department." />
-        <meta property="og:url" content="https://mulsetu.com" />
-        <meta property="og:image" content="https://mulsetu.com/og-image.png" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta property="og:locale" content="en_IN" />
-
-        {/* Twitter Card */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Mulsetu — Your Dedicated IT Team & Technology Partner" />
-        <meta name="twitter:description" content="We build software, automate operations, and manage technology — so you don't have to hire an entire IT department." />
-        <meta name="twitter:image" content="https://mulsetu.com/og-image.png" />
-
-        {/* Canonical */}
-        <link rel="canonical" href="https://mulsetu.com" />
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-
-        {/* Structured Data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "Organization",
-              name: "Mulsetu Agrotech Private Limited",
-              alternateName: "Mulsetu",
-              url: "https://mulsetu.com",
-              logo: "https://mulsetu.com/favicon.svg",
-              email: "founder@mulsetu.com",
-              description: "Dedicated technology and AI partner for growing businesses. We build software, automate operations, and manage technology end-to-end.",
-              address: {
-                "@type": "PostalAddress",
-                addressCountry: "IN",
-              },
-              sameAs: [],
-              offers: {
-                "@type": "AggregateOffer",
-                description: "IT services including AI automation, website development, SaaS, custom software, mobile apps, and digital growth.",
-              },
+              "@graph": [
+                {
+                  "@type": ["Organization", "ProfessionalService"],
+                  "@id": "https://mulsetu.com/#organization",
+                  name: "Mulsetu",
+                  legalName: "Mulsetu Agrotech Private Limited",
+                  alternateName: "Mulsetu",
+                  url: "https://mulsetu.com",
+                  logo: {
+                    "@type": "ImageObject",
+                    url: "https://mulsetu.com/favicon.svg",
+                    caption: "Mulsetu — Technology Partner",
+                  },
+                  email: "founder@mulsetu.com",
+                  description:
+                    "Mulsetu is a global technology and AI partner that works as a dedicated IT team for businesses worldwide. We build SaaS platforms, custom software, AI automation, mobile apps, and websites — and manage technology end-to-end for founders and companies across 30+ countries.",
+                  foundingDate: "2024",
+                  areaServed: "Worldwide",
+                  serviceArea: {
+                    "@type": "AdministrativeArea",
+                    name: "Worldwide",
+                  },
+                  contactPoint: {
+                    "@type": "ContactPoint",
+                    contactType: "customer service",
+                    email: "founder@mulsetu.com",
+                    availableLanguage: ["English"],
+                    areaServed: "Worldwide",
+                  },
+                  sameAs: [
+                    "https://www.linkedin.com/company/mulsetu",
+                  ],
+                  knowsAbout: [
+                    "AI Automation",
+                    "SaaS Development",
+                    "Custom Software Development",
+                    "Mobile App Development",
+                    "Website Development",
+                    "ERP Systems",
+                    "Digital Transformation",
+                    "Dedicated IT Team",
+                    "Data Scraping",
+                    "Digital Growth",
+                    "SEO",
+                  ],
+                  hasOfferCatalog: {
+                    "@type": "OfferCatalog",
+                    name: "Technology Services",
+                    itemListElement: [
+                      { "@type": "Offer", itemOffered: { "@type": "Service", name: "AI & Automation", url: "https://mulsetu.com/services/ai-automation" } },
+                      { "@type": "Offer", itemOffered: { "@type": "Service", name: "SaaS Platform Development", url: "https://mulsetu.com/services/saas-development" } },
+                      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Custom Software & ERP", url: "https://mulsetu.com/services/custom-software" } },
+                      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Website Development", url: "https://mulsetu.com/services/website-development" } },
+                      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Mobile App Development", url: "https://mulsetu.com/services/mobile-apps" } },
+                      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Digital Growth & SEO", url: "https://mulsetu.com/services/digital-growth" } },
+                      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Dedicated IT Team", url: "https://mulsetu.com/dedicated-it-team" } },
+                    ],
+                  },
+                },
+                {
+                  "@type": "WebSite",
+                  "@id": "https://mulsetu.com/#website",
+                  name: "Mulsetu",
+                  url: "https://mulsetu.com",
+                  description: "Global technology and AI partner. Build software, automate operations, and get a dedicated IT team — without the overhead.",
+                  publisher: { "@id": "https://mulsetu.com/#organization" },
+                  inLanguage: "en",
+                },
+              ],
             }),
           }}
         />
@@ -95,11 +164,8 @@ export default function RootLayout({
       <body className="bg-deep text-white antialiased">
         <CursorGlow />
         <Navbar />
-        <AnimatePresence mode="wait">
-          <PageTransition>{children}</PageTransition>
-        </AnimatePresence>
+        <ClientShell>{children}</ClientShell>
         <Footer />
-        <WhatsAppFloat />
       </body>
     </html>
   );

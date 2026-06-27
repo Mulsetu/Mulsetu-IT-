@@ -105,7 +105,7 @@ export default function TermsPage() {
               <li>Late payments may attract interest at 1.5% per month or the maximum permitted by law.</li>
               <li>Mulsetu reserves the right to pause or terminate services on accounts with outstanding payments.</li>
             </ul>
-            <p>All prices are in Indian Rupees (INR) and exclusive of applicable taxes unless stated otherwise. GST will be applied as required by Indian law.</p>
+            <p>Prices are quoted in the currency agreed upon in the applicable SOW or proposal (USD, INR, or otherwise). Applicable taxes (including GST for Indian clients) will be applied as required by local law.</p>
           </Section>
 
           <Section title="7. Confidentiality">

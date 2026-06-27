@@ -127,8 +127,8 @@ export default function Navbar() {
             <Link href="/dedicated-it-team" className="text-sm font-medium text-muted hover:text-white transition-colors">
               IT Team
             </Link>
-            <Link href="/industries" className="text-sm font-medium text-muted hover:text-white transition-colors">
-              Industries
+            <Link href="/our-work" className="text-sm font-medium text-muted hover:text-white transition-colors">
+              Our Work
             </Link>
             <Link href="/process" className="text-sm font-medium text-muted hover:text-white transition-colors">
               Process
@@ -139,6 +139,9 @@ export default function Navbar() {
             <Link href="/products" className="text-sm font-medium text-teal-bright/80 hover:text-teal-bright transition-colors flex items-center gap-1.5">
               Products
               <span className="text-[10px] font-bold tracking-widest uppercase bg-teal/10 border border-teal/25 text-teal rounded-full px-1.5 py-0.5 leading-none">New</span>
+            </Link>
+            <Link href="/blog" className="text-sm font-medium text-muted hover:text-white transition-colors">
+              Blog
             </Link>
           </div>
 
@@ -192,10 +195,11 @@ export default function Navbar() {
               <div className="border-t border-white/[0.06] my-3" />
               {[
                 { label: "Dedicated IT Team", href: "/dedicated-it-team" },
-                { label: "Industries", href: "/industries" },
+                { label: "Our Work", href: "/our-work" },
                 { label: "Process", href: "/process" },
                 { label: "About", href: "/about" },
                 { label: "Products", href: "/products" },
+                { label: "Blog & Insights", href: "/blog" },
                 { label: "Contact", href: "/contact" },
               ].map((item) => (
                 <Link

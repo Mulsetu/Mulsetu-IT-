@@ -1,116 +1,86 @@
-"use client";
-import Link from "next/link";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
-import Reveal from "@/components/ui/Reveal";
+import type { Metadata } from "next";
+import Content from "./Content";
 
-const roles = [
-  { icon: "🧑‍💻", role: "Senior Developer", cost: "₹8–15L/yr", note: "Full-stack or specialised" },
-  { icon: "🎨", role: "UI/UX Designer", cost: "₹5–10L/yr", note: "Product + web design" },
-  { icon: "🔍", role: "SEO Expert", cost: "₹4–8L/yr", note: "Organic growth" },
-  { icon: "📋", role: "Project Manager", cost: "₹8–12L/yr", note: "Coordination & delivery" },
-  { icon: "🤖", role: "AI Engineer", cost: "₹12–20L/yr", note: "LLMs & automation" },
-  { icon: "☁️", role: "DevOps Engineer", cost: "₹10–18L/yr", note: "Cloud & infrastructure" },
-];
+export const metadata: Metadata = {
+  title: "Dedicated IT Team Model",
+  description:
+    "Get a full technology team — senior developers, UI/UX designers, AI engineers, SEO specialists, and DevOps — without the overhead of hiring. One team. One contact. Full accountability.",
+  keywords: [
+    "dedicated IT team",
+    "outsourced IT team",
+    "tech team as a service",
+    "software development team",
+    "managed IT services",
+    "technology partner",
+    "hire software developers",
+    "remote development team",
+    "offshore IT team",
+    "fractional CTO",
+  ],
+  alternates: { canonical: "https://mulsetu.com/dedicated-it-team" },
+  openGraph: {
+    title: "Dedicated IT Team — Mulsetu",
+    description:
+      "Your complete in-house technology team without the hiring cost. Senior dev, design, AI, SEO, DevOps — one team, one bill.",
+    url: "https://mulsetu.com/dedicated-it-team",
+  },
+};
 
-const included = [
-  "Software development (web, mobile, SaaS, ERP)",
-  "UI/UX design and product thinking",
-  "AI and automation implementation",
-  "SEO and digital growth management",
-  "Cloud infrastructure and DevOps",
-  "Business analysis and tech consulting",
-  "Project management and delivery",
-  "Monthly performance reviews and reporting",
-  "Security updates and maintenance",
-  "Priority support and rapid response",
-];
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "What is a dedicated IT team model?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "A dedicated IT team model means you get a full technology team — developers, designers, AI engineers, DevOps, and SEO specialists — working exclusively on your projects on a monthly retainer. Unlike project-based outsourcing, the team functions as your in-house IT department without the cost of full-time employment.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How much does a dedicated IT team from Mulsetu cost?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "A full Mulsetu dedicated IT team (senior developer, UI/UX designer, AI engineer, SEO specialist, DevOps, and project manager) costs $460,000–$780,000 per year — compared to $1M+ for equivalent in-house hires in Western markets. Individual role costs range from $45,000 to $180,000 per year depending on the role.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Can I hire just one or two roles from Mulsetu?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. You can engage Mulsetu for individual roles — a single senior developer, a UI/UX designer, or an AI engineer — or build a complete team over time. The model scales with your needs.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Do you work with international clients?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. Mulsetu works with clients across 30+ countries including the United States, United Kingdom, Canada, Australia, UAE, and Europe. All communication is in English and engagements are structured for remote collaboration.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What is the difference between Mulsetu and a freelancer or traditional agency?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Freelancers work on individual tasks with no accountability for the whole system. Traditional agencies hand off projects and move on. Mulsetu works as a long-term embedded partner — owning your technology end-to-end, proactively improving it, and staying accountable for outcomes, not just deliverables.",
+      },
+    },
+  ],
+};
 
-export default function DedicatedITTeamPage() {
+export default function Page() {
   return (
-    <main className="bg-deep pt-24">
-      <section className="relative py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-radial from-teal/10 via-transparent to-transparent" />
-        <div className="absolute inset-0 bg-grid opacity-20" />
-        <div className="relative max-w-5xl mx-auto px-6 text-center">
-          <Reveal>
-            <span className="section-tag mb-6 inline-flex">Dedicated IT Team</span>
-            <h1 className="font-display font-bold text-5xl md:text-7xl leading-tight mt-5 mb-6">
-              Think of Us As<br /><span className="gradient-text">Your In-House IT Team.</span>
-            </h1>
-            <p className="text-muted text-xl max-w-2xl mx-auto leading-relaxed mb-10">
-              Instead of hiring six specialists and managing separate salaries, coordination gaps
-              and context-switching — get one unified technology team through Mulsetu.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Link href="/contact" className="btn-primary px-8 py-4 rounded-xl font-semibold flex items-center gap-2">Explore the Model <ArrowRight size={16} /></Link>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      <section className="py-20">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <Reveal delay={0.1}>
-              <div className="glass-card rounded-2xl p-8">
-                <h2 className="font-display font-bold text-2xl mb-2 text-white/60">Without Mulsetu</h2>
-                <p className="text-sm text-muted mb-6">You&apos;d need to hire, manage and retain all of these separately:</p>
-                <div className="space-y-3">
-                  {roles.map((r) => (
-                    <div key={r.role} className="flex items-center justify-between py-2.5 border-b border-white/[0.05] last:border-0">
-                      <div className="flex items-center gap-3">
-                        <span className="text-xl opacity-40">{r.icon}</span>
-                        <div>
-                          <div className="text-sm text-muted/50 line-through">{r.role}</div>
-                          <div className="text-xs text-muted/30">{r.note}</div>
-                        </div>
-                      </div>
-                      <span className="text-xs font-mono text-muted/40">{r.cost}</span>
-                    </div>
-                  ))}
-                </div>
-                <div className="mt-5 pt-4 border-t border-white/[0.06]">
-                  <div className="flex justify-between text-sm">
-                    <span className="text-muted/50">Total annual cost</span>
-                    <span className="font-mono text-red-400/60">₹47L–83L/yr</span>
-                  </div>
-                  <p className="text-xs text-muted/30 mt-1">Excluding PF, benefits, equipment, training and recruitment costs</p>
-                </div>
-              </div>
-            </Reveal>
-
-            <Reveal delay={0.2}>
-              <div className="glass-card rounded-2xl p-8 border-teal/30 bg-gradient-to-br from-teal/8 to-transparent">
-                <h2 className="font-display font-bold text-2xl mb-2 gradient-text">With Mulsetu</h2>
-                <p className="text-sm text-muted mb-6">One unified team, one point of contact, full accountability:</p>
-                <div className="space-y-2.5 mb-8">
-                  {included.map((item) => (
-                    <div key={item} className="flex items-start gap-2.5">
-                      <CheckCircle2 size={14} className="text-teal-bright mt-0.5 shrink-0" />
-                      <span className="text-sm text-soft">{item}</span>
-                    </div>
-                  ))}
-                </div>
-                <Link href="/contact" className="btn-primary w-full py-3.5 rounded-xl font-semibold flex items-center justify-center gap-2 text-sm">
-                  <span className="relative z-10">Get a Custom Quote</span>
-                  <ArrowRight size={14} />
-                </Link>
-              </div>
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-24 text-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-teal/8 to-transparent" />
-        <div className="relative max-w-3xl mx-auto px-6">
-          <Reveal>
-            <h2 className="font-display font-bold text-4xl md:text-5xl mb-6">Ready to <span className="gradient-text">Get Started?</span></h2>
-            <p className="text-muted text-lg mb-8 max-w-xl mx-auto">Book a call and we&apos;ll walk you through how the dedicated IT team model works for your business.</p>
-            <Link href="/contact" className="btn-primary px-10 py-4 rounded-xl text-lg font-semibold inline-flex items-center gap-2">Book Free Strategy Call <ArrowRight size={18} /></Link>
-          </Reveal>
-        </div>
-      </section>
-    </main>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <Content />
+    </>
   );
 }

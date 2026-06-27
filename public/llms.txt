@@ -1,0 +1,53 @@
+# Mulsetu
+
+> Mulsetu is a global technology and AI company that works as a dedicated IT team for businesses and founders worldwide. We build software, automate operations, and manage technology end-to-end — so you don't have to build an in-house IT department.
+
+Mulsetu (legally incorporated as Mulsetu Agrotech Private Limited) is a technology services company serving clients across 30+ countries. We operate as an embedded technology partner — functioning like an in-house IT team — rather than a traditional vendor or agency.
+
+## What Mulsetu Does
+
+- **SaaS Platform Development**: Multi-tenant, multi-role SaaS products with subscription billing, analytics, and scalable infrastructure
+- **Custom Software & ERP**: Bespoke business systems — ERP, CRM, inventory management, billing, HR, and workflow automation
+- **AI & Automation**: AI chatbots, intelligent agents, email automation, document processing, and workflow orchestration
+- **Website Development**: Performance-first websites and web applications in Next.js, React, and WordPress
+- **Mobile App Development**: Android, iOS, and cross-platform Flutter apps
+- **Digital Growth & SEO**: SEO strategy, performance optimisation, analytics, and lead generation
+- **Data Scraping & Research**: Ethical web scraping, competitive intelligence, and automated data pipelines
+- **Dedicated IT Team Model**: Full technology team (developers, designers, AI engineers, DevOps, SEO) on a retainer model — one team, one contact, full accountability
+
+## Who Mulsetu Serves
+
+- Founders and startups building their first digital product or SaaS platform
+- SMEs digitising their operations and moving away from manual processes
+- Companies that need ongoing technology support without the cost of a full in-house team
+- International businesses expanding into new markets who need technology built to scale
+- Enterprises needing AI automation to reduce operational overhead
+
+Mulsetu serves clients globally — including the United States, United Kingdom, Canada, Australia, UAE, India, and Europe — with no geographic restrictions on engagement.
+
+## Notable Work
+
+- **TrackMyStartup**: A multi-role SaaS platform for the startup ecosystem, featuring 7 distinct dashboards (Startup, Investor, Investment Advisor, Incubation Center, CA, CS, Mentors). Now live in 30+ countries.
+
+## Engagement Model
+
+Mulsetu works as a long-term technology partner, not a one-time project vendor. The dedicated IT team model means clients get a senior developer, UI/UX designer, AI engineer, SEO specialist, and DevOps support — without hiring individually.
+
+## Contact
+
+- Website: https://mulsetu.com
+- Email: founder@mulsetu.com
+- Contact form: https://mulsetu.com/contact
+
+## Key Pages
+
+- Services overview: https://mulsetu.com/services
+- AI & Automation: https://mulsetu.com/services/ai-automation
+- SaaS Development: https://mulsetu.com/services/saas-development
+- Custom Software: https://mulsetu.com/services/custom-software
+- Website Development: https://mulsetu.com/services/website-development
+- Mobile Apps: https://mulsetu.com/services/mobile-apps
+- Dedicated IT Team: https://mulsetu.com/dedicated-it-team
+- Our Work: https://mulsetu.com/our-work
+- Blog: https://mulsetu.com/blog
+- Contact / Book a call: https://mulsetu.com/contact

@@ -94,12 +94,60 @@ const industries = [
 ];
 
 const itRoles = [
-  { role: "Senior Developer", cost: "₹8–15L/yr" },
-  { role: "UI/UX Designer", cost: "₹5–10L/yr" },
-  { role: "SEO Expert", cost: "₹4–8L/yr" },
-  { role: "Project Manager", cost: "₹8–12L/yr" },
-  { role: "AI Engineer", cost: "₹12–20L/yr" },
-  { role: "DevOps Engineer", cost: "₹10–18L/yr" },
+  { role: "Senior Developer", cost: "$80–150K/yr" },
+  { role: "UI/UX Designer", cost: "$55–95K/yr" },
+  { role: "SEO Expert", cost: "$45–80K/yr" },
+  { role: "Project Manager", cost: "$75–115K/yr" },
+  { role: "AI Engineer", cost: "$110–180K/yr" },
+  { role: "DevOps Engineer", cost: "$95–160K/yr" },
+];
+
+const blogPosts = [
+  {
+    slug: "ai-automation-saves-time",
+    title: "How AI Automation Is Saving Businesses 20+ Hours Per Week",
+    excerpt: "Repetitive tasks are quietly draining your team's capacity. Here's how modern AI tools — chatbots, email workflows, and intelligent agents — are giving those hours back.",
+    tags: ["AI", "Automation", "Productivity"],
+    date: "June 10, 2026",
+    readTime: "5 min read",
+    cover: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    slug: "saas-vs-custom-software",
+    title: "SaaS Platform vs. Custom Software: What Growing Businesses Actually Need",
+    excerpt: "Off-the-shelf software can only take you so far. Discover when a custom-built SaaS platform becomes the competitive advantage your business can't afford to skip.",
+    tags: ["SaaS", "Software", "Strategy"],
+    date: "May 22, 2026",
+    readTime: "6 min read",
+    cover: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    slug: "cost-of-digital-delay",
+    title: "The Real Cost of Delaying Your Digital Transformation",
+    excerpt: "Every month you operate on manual processes is a month your competitors gain ground. We break down the true — often invisible — cost of not digitizing your operations.",
+    tags: ["Digital Transformation", "ROI", "Operations"],
+    date: "April 15, 2026",
+    readTime: "7 min read",
+    cover: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
+  },
+];
+
+const testimonials = [
+  {
+    company: "TrackMyStartup",
+    website: "https://www.trackmystartup.com",
+    logo: null,
+    founder: "Dr. Saeel Momin",
+    role: "Founder, TrackMyStartup",
+    quote: "Best team I have worked with. The quality of work they have delivered is exceptional. This team works as my own IT team — fully dedicated, fully accountable.",
+    project: "End-to-end SaaS platform with 7 specialized dashboards — built from scratch and scaled globally.",
+    dashboards: ["Startup", "Investor", "Investment Advisor", "Incubation Center", "CA", "CS", "Mentors"],
+    stats: [
+      { label: "Dashboards Built", value: "7" },
+      { label: "Countries Scaled", value: "30+" },
+      { label: "User Roles", value: "7" },
+    ],
+  },
 ];
 
 // ── COMPONENT ─────────────────────────────────────────────────────────────────
@@ -428,6 +476,179 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── TESTIMONIALS ── */}
+      <section className="py-16 md:py-28 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-navy/60 to-deep" />
+        <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-teal/4 blur-3xl pointer-events-none" />
+        <div className="relative max-w-6xl mx-auto px-6">
+          <Reveal>
+            <div className="text-center mb-16">
+              <span className="section-tag mb-4 inline-flex">Client Success Stories</span>
+              <h2 className="font-display font-bold text-3xl md:text-5xl mt-4 mb-5">
+                What Our <span className="gradient-text">Clients Say</span>
+              </h2>
+              <p className="text-muted text-lg max-w-xl mx-auto">
+                Real results, real feedback from founders who trust Mulsetu as their technology partner.
+              </p>
+            </div>
+          </Reveal>
+
+          {testimonials.map((t, i) => (
+            <Reveal key={t.company} delay={i * 0.1}>
+              <div className="glass-card rounded-3xl p-8 md:p-10 border-teal/20 bg-gradient-to-br from-teal/5 to-transparent">
+                <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12">
+                  {/* Quote side */}
+                  <div className="lg:col-span-3 flex flex-col justify-between">
+                    <div>
+                      <div className="text-teal-bright text-4xl leading-none mb-4 font-display">&ldquo;</div>
+                      <p className="text-lg md:text-xl text-soft leading-relaxed font-medium mb-8">
+                        {t.quote}
+                      </p>
+                    </div>
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-teal/30 to-teal/10 border border-teal/30 flex items-center justify-center shrink-0">
+                        <span className="text-teal-bright font-bold text-lg">{t.founder.charAt(0)}</span>
+                      </div>
+                      <div>
+                        <p className="font-semibold text-white">{t.founder}</p>
+                        <a
+                          href={t.website}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-sm text-teal-bright hover:underline"
+                        >
+                          {t.role}
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Project details side */}
+                  <div className="lg:col-span-2 flex flex-col gap-6">
+                    {/* Logo */}
+                    <div className="flex items-center gap-3">
+                      <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center shrink-0 overflow-hidden p-1.5">
+                        <img src="/logos/trackmystartup.svg" alt="TrackMyStartup" className="w-full h-full object-contain" />
+                      </div>
+                      <div>
+                        <p className="font-display font-bold text-lg">{t.company}</p>
+                        <p className="text-xs text-muted">{t.project}</p>
+                      </div>
+                    </div>
+
+                    {/* Stats */}
+                    <div className="grid grid-cols-3 gap-3">
+                      {t.stats.map((s) => (
+                        <div key={s.label} className="glass-card rounded-xl p-3 text-center">
+                          <div className="font-display font-bold text-2xl gradient-text">{s.value}</div>
+                          <div className="text-xs text-muted mt-0.5 leading-tight">{s.label}</div>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Dashboards */}
+                    <div>
+                      <p className="text-xs font-bold tracking-widest uppercase text-white/40 mb-3">Dashboards Built</p>
+                      <div className="flex flex-wrap gap-2">
+                        {t.dashboards.map((d) => (
+                          <span key={d} className="text-xs px-2.5 py-1 rounded-full bg-teal/10 border border-teal/20 text-teal-bright">
+                            {d}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    <a
+                      href={t.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-outline text-xs px-4 py-2.5 rounded-lg inline-flex items-center gap-2 w-fit"
+                    >
+                      Visit {t.company} &rarr;
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+
+          <Reveal delay={0.3}>
+            <div className="text-center mt-10">
+              <Link href="/our-work" className="btn-outline px-8 py-3.5 rounded-xl inline-flex items-center gap-2 text-sm font-semibold">
+                See Our Work &rarr;
+              </Link>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ── BLOG PREVIEW ── */}
+      <section className="py-16 md:py-28 relative">
+        <div className="absolute inset-0 bg-grid opacity-15" />
+        <div className="relative max-w-6xl mx-auto px-6">
+          <Reveal>
+            <div className="text-center mb-16">
+              <span className="section-tag mb-4 inline-flex">Insights & Resources</span>
+              <h2 className="font-display font-bold text-3xl md:text-5xl mt-4 mb-5">
+                From Our <span className="gradient-text">Blog</span>
+              </h2>
+              <p className="text-muted text-lg max-w-xl mx-auto">
+                Practical articles on AI, automation, and building technology for growing businesses.
+              </p>
+            </div>
+          </Reveal>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+            {blogPosts.map((post, i) => (
+              <Reveal key={post.slug} delay={i * 0.08}>
+                <Link href={`/blog/${post.slug}`} className="group block h-full">
+                  <div className="glass-card glass-card-hover rounded-2xl overflow-hidden h-full flex flex-col">
+                    {/* Cover image */}
+                    <div className="relative h-48 overflow-hidden">
+                      <img
+                        src={post.cover}
+                        alt={post.title}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-deep/80 to-transparent" />
+                    </div>
+
+                    {/* Content */}
+                    <div className="p-6 flex flex-col flex-1">
+                      <div className="flex flex-wrap gap-2 mb-3">
+                        {post.tags.slice(0, 2).map((tag) => (
+                          <span key={tag} className="text-xs px-2 py-0.5 rounded-full bg-teal/10 border border-teal/20 text-teal-bright">
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                      <h3 className="font-display font-bold text-base md:text-lg leading-snug mb-3 group-hover:text-teal-bright transition-colors flex-1">
+                        {post.title}
+                      </h3>
+                      <p className="text-sm text-muted leading-relaxed mb-4 line-clamp-2">
+                        {post.excerpt}
+                      </p>
+                      <div className="flex items-center justify-between text-xs text-muted/60 mt-auto pt-4 border-t border-white/[0.06]">
+                        <span>{post.date}</span>
+                        <span>{post.readTime}</span>
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal delay={0.2}>
+            <div className="text-center">
+              <Link href="/blog" className="btn-outline px-8 py-3.5 rounded-xl inline-flex items-center gap-2 text-sm font-semibold">
+                Read All Articles &rarr;
+              </Link>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       {/* ── FINAL CTA ── */}
       <section className="py-20 md:py-32 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-deep via-navy to-deep" />
@@ -447,9 +668,6 @@ export default function HomePage() {
               <Link href="/contact" className="btn-primary w-full sm:w-auto px-8 sm:px-10 py-4 rounded-xl text-base sm:text-lg font-semibold text-center">
                 Book Free Strategy Session &rarr;
               </Link>
-              <a href="https://wa.me/91XXXXXXXXXX" className="btn-outline w-full sm:w-auto px-8 sm:px-10 py-4 rounded-xl text-base sm:text-lg font-semibold flex items-center justify-center gap-2">
-                💬 Chat on WhatsApp
-              </a>
             </div>
             <p className="text-xs sm:text-sm text-muted/60">
               No commitment required · 30-minute call · Get a clear technology roadmap
