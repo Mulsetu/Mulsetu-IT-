@@ -55,6 +55,13 @@ const services = [
     href: "/services/digital-growth",
     color: "from-orange-500/10 to-teal/5",
   },
+  {
+    title: "MVP Development",
+    desc: "Idea to live product in 4–8 weeks. Lean, investor-ready MVPs built specifically for startups that need to move fast.",
+    tags: ["4–8 Weeks", "Startups", "Investor Ready", "Fixed Scope"],
+    href: "/services/mvp-development",
+    color: "from-rose-500/10 to-teal/5",
+  },
 ];
 
 const problems = [

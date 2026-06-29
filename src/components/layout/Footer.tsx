@@ -10,6 +10,7 @@ const services = [
   { label: "Mobile Apps", href: "/services/mobile-apps" },
   { label: "Digital Growth & SEO", href: "/services/digital-growth" },
   { label: "Data Scraping & Research", href: "/services/data-scraping" },
+  { label: "MVP Development", href: "/services/mvp-development" },
 ];
 
 const company = [
@@ -20,6 +21,7 @@ const company = [
   { label: "Our Work", href: "/our-work" },
   { label: "Our Products", href: "/products" },
   { label: "Blog & Insights", href: "/blog" },
+  { label: "Partner Program", href: "/partners" },
 ];
 
 const industries = [

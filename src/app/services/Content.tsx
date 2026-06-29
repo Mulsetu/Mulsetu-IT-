@@ -10,6 +10,7 @@ const services = [
   { icon: "🏭", title: "Custom Software & ERP", desc: "ERP, billing, inventory, HR, CRM and School ERP built around your workflow — not a generic off-the-shelf product.", href: "/services/custom-software", items: ["ERP Systems", "Billing Software", "Inventory Management", "CRM", "School ERP", "HR Systems"] },
   { icon: "📱", title: "Mobile App Development", desc: "Android, iOS and Flutter apps for customers, employees and field teams — fast, reliable and well-designed.", href: "/services/mobile-apps", items: ["Android Apps", "iOS Apps", "Flutter Apps", "Customer Apps", "Employee Apps", "Admin Panels"] },
   { icon: "📈", title: "Digital Growth & SEO", desc: "SEO, performance optimisation, analytics setup and lead generation systems that compound over time.", href: "/services/digital-growth", items: ["SEO Strategy", "Performance Optimization", "Analytics Setup", "Lead Generation", "Website Maintenance"] },
+  { icon: "🚀", title: "MVP Development", desc: "From idea to live product in 4–8 weeks. Lean, investor-ready MVPs for startups — fast enough to validate, solid enough to scale.", href: "/services/mvp-development", items: ["Web App MVPs", "Mobile MVPs", "SaaS MVPs", "4–8 Week Delivery", "Fixed Scope", "Investor Ready"] },
 ];
 
 export default function ServicesPage() {
@@ -25,7 +26,7 @@ export default function ServicesPage() {
               Everything Your Business<br /><span className="gradient-text">Needs to Go Digital.</span>
             </h1>
             <p className="text-muted text-xl max-w-2xl mx-auto leading-relaxed">
-              Six domains of deep expertise. One unified team. No handoffs, no gaps, no excuses.
+              Seven domains of deep expertise. One unified team. No handoffs, no gaps, no excuses.
             </p>
           </Reveal>
         </div>

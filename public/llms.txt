@@ -2,7 +2,7 @@
 
 > Mulsetu is a global technology and AI company that works as a dedicated IT team for businesses and founders worldwide. We build software, automate operations, and manage technology end-to-end — so you don't have to build an in-house IT department.
 
-Mulsetu (legally incorporated as Mulsetu Agrotech Private Limited) is a technology services company serving clients across 30+ countries. We operate as an embedded technology partner — functioning like an in-house IT team — rather than a traditional vendor or agency.
+Mulsetu (legally incorporated as Mulsetu Agrotech Private Limited) is a technology services company serving clients globally. We operate as an embedded technology partner — functioning like an in-house IT team — rather than a traditional vendor or agency.
 
 ## What Mulsetu Does
 
@@ -13,6 +13,7 @@ Mulsetu (legally incorporated as Mulsetu Agrotech Private Limited) is a technolo
 - **Mobile App Development**: Android, iOS, and cross-platform Flutter apps
 - **Digital Growth & SEO**: SEO strategy, performance optimisation, analytics, and lead generation
 - **Data Scraping & Research**: Ethical web scraping, competitive intelligence, and automated data pipelines
+- **MVP Development**: Idea to live product in 4–8 weeks for startups — lean, investor-ready MVPs for web apps, mobile apps, and SaaS platforms
 - **Dedicated IT Team Model**: Full technology team (developers, designers, AI engineers, DevOps, SEO) on a retainer model — one team, one contact, full accountability
 
 ## Who Mulsetu Serves
@@ -47,7 +48,9 @@ Mulsetu works as a long-term technology partner, not a one-time project vendor. 
 - Custom Software: https://mulsetu.com/services/custom-software
 - Website Development: https://mulsetu.com/services/website-development
 - Mobile Apps: https://mulsetu.com/services/mobile-apps
+- MVP Development: https://mulsetu.com/services/mvp-development
 - Dedicated IT Team: https://mulsetu.com/dedicated-it-team
 - Our Work: https://mulsetu.com/our-work
 - Blog: https://mulsetu.com/blog
+- Partner Program: https://mulsetu.com/partners
 - Contact / Book a call: https://mulsetu.com/contact

@@ -5,7 +5,7 @@ import { Html } from "@react-three/drei";
 import * as THREE from "three";
 import { useRouter } from "next/navigation";
 import { useScroll, useSpring, useTransform, useMotionValueEvent, motion, MotionValue } from "framer-motion";
-import { Bot, Globe, Cloud, Code, Smartphone, LineChart, Database } from "lucide-react";
+import { Bot, Globe, Cloud, Code, Smartphone, LineChart, Database, Rocket } from "lucide-react";
 
 const services = [
   {
@@ -70,6 +70,15 @@ const services = [
     cta: "Discuss Your Data Needs",
     color: "#acedff",
     icon: Database
+  },
+  {
+    title: "MVP Development",
+    subtitle: "Idea to Live Product. In 4–8 Weeks.",
+    desc: "We build lean, investor-ready MVPs for startups — fast enough to validate your concept with real users, solid enough to scale when you grow. Fixed scope, fixed timeline, full code ownership.",
+    href: "/services/mvp-development",
+    cta: "Book Free MVP Discovery Call",
+    color: "#4cd7f6",
+    icon: Rocket
   },
 ];
 
@@ -150,9 +159,9 @@ const OrbitingSphere = ({
   // defined before useFrame so the closure captures it correctly
   const isLeft = index % 2 === 0;
 
-  const tiltX = [Math.PI / 4, -Math.PI / 5, Math.PI / 3, -Math.PI / 6, Math.PI / 5, -Math.PI / 4, Math.PI / 7][index];
-  const tiltY = [Math.PI / 6, Math.PI / 3, -Math.PI / 4, Math.PI / 2, -Math.PI / 3, 0, -Math.PI / 8][index];
-  const tiltZ = [0, Math.PI / 8, -Math.PI / 6, Math.PI / 4, Math.PI / 5, -Math.PI / 3, Math.PI / 3][index];
+  const tiltX = [Math.PI / 4, -Math.PI / 5, Math.PI / 3, -Math.PI / 6, Math.PI / 5, -Math.PI / 4, Math.PI / 7, -Math.PI / 5][index];
+  const tiltY = [Math.PI / 6, Math.PI / 3, -Math.PI / 4, Math.PI / 2, -Math.PI / 3, 0, -Math.PI / 8, Math.PI / 4][index];
+  const tiltZ = [0, Math.PI / 8, -Math.PI / 6, Math.PI / 4, Math.PI / 5, -Math.PI / 3, Math.PI / 3, -Math.PI / 7][index];
 
   const vec = useMemo(() => new THREE.Vector3(), []);
   const euler = useMemo(() => new THREE.Euler(), []);

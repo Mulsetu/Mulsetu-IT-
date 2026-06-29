@@ -59,7 +59,7 @@ const faqSchema = {
       name: "Do you work with international clients?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. Mulsetu works with clients across 30+ countries including the United States, United Kingdom, Canada, Australia, UAE, and Europe. All communication is in English and engagements are structured for remote collaboration.",
+        text: "Yes. Mulsetu works with international clients including those based in the United States, United Kingdom, Canada, Australia, UAE, and Europe. All communication is in English and engagements are structured for remote collaboration.",
       },
     },
     {

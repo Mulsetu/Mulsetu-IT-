@@ -103,7 +103,7 @@ export default function RootLayout({
                   },
                   email: "founder@mulsetu.com",
                   description:
-                    "Mulsetu is a global technology and AI partner that works as a dedicated IT team for businesses worldwide. We build SaaS platforms, custom software, AI automation, mobile apps, and websites — and manage technology end-to-end for founders and companies across 30+ countries.",
+                    "Mulsetu is a global technology and AI partner that works as a dedicated IT team for businesses worldwide. We build SaaS platforms, custom software, AI automation, mobile apps, and websites — and manage technology end-to-end for founders and companies globally.",
                   foundingDate: "2024",
                   areaServed: "Worldwide",
                   serviceArea: {
@@ -144,6 +144,7 @@ export default function RootLayout({
                       { "@type": "Offer", itemOffered: { "@type": "Service", name: "Mobile App Development", url: "https://mulsetu.com/services/mobile-apps" } },
                       { "@type": "Offer", itemOffered: { "@type": "Service", name: "Digital Growth & SEO", url: "https://mulsetu.com/services/digital-growth" } },
                       { "@type": "Offer", itemOffered: { "@type": "Service", name: "Dedicated IT Team", url: "https://mulsetu.com/dedicated-it-team" } },
+                      { "@type": "Offer", itemOffered: { "@type": "Service", name: "MVP Development for Startups", url: "https://mulsetu.com/services/mvp-development" } },
                     ],
                   },
                 },

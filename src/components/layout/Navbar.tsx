@@ -13,6 +13,7 @@ const services = [
   { label: "Mobile Apps", href: "/services/mobile-apps", desc: "Android, iOS, Flutter" },
   { label: "Digital Growth & SEO", href: "/services/digital-growth", desc: "SEO, performance, lead gen" },
   { label: "Data Scraping & Research", href: "/services/data-scraping", desc: "Public data, market intelligence" },
+  { label: "MVP Development", href: "/services/mvp-development", desc: "Idea to live product in 4–8 weeks" },
 ];
 
 export default function Navbar() {
@@ -140,6 +141,10 @@ export default function Navbar() {
               Products
               <span className="text-[10px] font-bold tracking-widest uppercase bg-teal/10 border border-teal/25 text-teal rounded-full px-1.5 py-0.5 leading-none">New</span>
             </Link>
+            <Link href="/partners" className="text-sm font-medium text-muted hover:text-white transition-colors flex items-center gap-1.5">
+              Partners
+              <span className="text-[10px] font-bold tracking-widest uppercase bg-teal/10 border border-teal/25 text-teal rounded-full px-1.5 py-0.5 leading-none">Earn</span>
+            </Link>
             <Link href="/blog" className="text-sm font-medium text-muted hover:text-white transition-colors">
               Blog
             </Link>
@@ -199,6 +204,7 @@ export default function Navbar() {
                 { label: "Process", href: "/process" },
                 { label: "About", href: "/about" },
                 { label: "Products", href: "/products" },
+                { label: "Partner Program", href: "/partners" },
                 { label: "Blog & Insights", href: "/blog" },
                 { label: "Contact", href: "/contact" },
               ].map((item) => (

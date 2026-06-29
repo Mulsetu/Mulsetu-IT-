@@ -4,7 +4,7 @@ import Content from "./Content";
 export const metadata: Metadata = {
   title: "Our Work",
   description:
-    "Software platforms, SaaS products, and digital systems built by Mulsetu. See the technology we've shipped for founders and businesses in 30+ countries worldwide.",
+    "Software platforms, SaaS products, and digital systems built by Mulsetu. See the technology we've shipped for founders and businesses worldwide.",
   keywords: ["Mulsetu portfolio", "software we built", "SaaS platform example", "TrackMyStartup", "custom software case study", "technology partner results"],
   alternates: { canonical: "https://mulsetu.com/our-work" },
   openGraph: {

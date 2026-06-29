@@ -11,6 +11,7 @@ const services = [
   "Mobile App Development",
   "Digital Growth & SEO",
   "Dedicated IT Team",
+  "MVP Development",
   "Not sure yet",
 ];
 
