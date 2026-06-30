@@ -348,6 +348,153 @@ export default function OurWorkPage() {
         </div>
       </section>
 
+      {/* ── FEATURED: STARTUP NATION INDIA ── */}
+      <section className="py-8 md:py-16 relative">
+        <div className="max-w-7xl mx-auto px-6">
+          <Reveal>
+            <div className="flex items-center gap-3 mb-8">
+              <span className="w-8 h-px bg-teal/50" />
+              <span className="text-xs font-bold tracking-widest uppercase text-teal-bright">Built by Us</span>
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.05}>
+            <div className="relative rounded-3xl overflow-hidden border border-white/[0.08] bg-gradient-to-br from-navy/80 via-deep to-navy/60 shadow-[0_40px_120px_rgba(0,0,0,0.5)]">
+
+              <div className="absolute -top-32 -right-32 w-[500px] h-[500px] bg-amber-500/5 rounded-full blur-[100px] pointer-events-none" />
+              <div className="absolute -bottom-32 -left-32 w-[400px] h-[400px] bg-teal/5 rounded-full blur-[100px] pointer-events-none" />
+
+              {/* Header */}
+              <div className="relative flex flex-col sm:flex-row sm:items-center justify-between gap-4 px-8 md:px-12 py-7 border-b border-white/[0.06]">
+                <div className="flex items-center gap-4">
+                  <div className="w-14 h-14 rounded-2xl bg-[#2a2a2a] flex items-center justify-center shrink-0 overflow-hidden p-1.5">
+                    <img src="/logos/startup-nation.png" alt="Startup Nation India" className="w-full h-full object-contain" />
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-2.5 flex-wrap">
+                      <h2 className="font-display font-bold text-xl text-white">Startup Nation India</h2>
+                      <a
+                        href="https://www.linkedin.com/company/startup-nation-india/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[10px] text-teal-bright border border-teal/25 rounded-full px-2 py-0.5 hover:bg-teal/10 transition-colors"
+                      >
+                        linkedin ↗
+                      </a>
+                    </div>
+                    <p className="text-sm text-muted mt-0.5">World&apos;s Largest Startup Olympiad Platform · Pune, India</p>
+                  </div>
+                </div>
+                <span className="text-[11px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full border bg-teal/10 text-teal-bright border-teal/25 shrink-0">
+                  Full Tech Build
+                </span>
+              </div>
+
+              {/* Body */}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
+
+                {/* LEFT */}
+                <div className="relative px-8 md:px-12 py-10 lg:border-r border-white/[0.06]">
+                  <p className="text-xs font-bold tracking-widest uppercase text-white/40 mb-4">What We Built</p>
+                  <p className="text-muted text-sm leading-relaxed mb-8 max-w-sm">
+                    We built the complete technology platform powering the world&apos;s largest Startup Olympiad — enabling startups globally to register, pitch, and get shortlisted through a fully digital, scalable system.
+                  </p>
+
+                  <p className="text-xs font-bold tracking-widest uppercase text-white/40 mb-4">Platform Modules</p>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                    {[
+                      { icon: "🚀", label: "Startup Registration", desc: "Global onboarding for participating startups" },
+                      { icon: "🎤", label: "Pitch Submission", desc: "Digital pitch portal for all entrants" },
+                      { icon: "✅", label: "Shortlisting System", desc: "Evaluation & selection workflow" },
+                      { icon: "👨‍⚖️", label: "Judge & Mentor Portal", desc: "Review, score & feedback tools" },
+                      { icon: "📊", label: "Dashboard & Analytics", desc: "Real-time event & submission tracking" },
+                      { icon: "🌍", label: "Global Scale", desc: "Built to handle worldwide participation" },
+                    ].map((item, i) => (
+                      <motion.div
+                        key={item.label}
+                        initial={{ opacity: 0, y: 12 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: i * 0.07, duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
+                        className="group flex items-start gap-3 p-3.5 rounded-xl bg-white/[0.03] border border-white/[0.06] hover:bg-white/[0.06] hover:border-teal/20 transition-all cursor-default"
+                      >
+                        <span className="text-lg mt-0.5 shrink-0">{item.icon}</span>
+                        <div>
+                          <div className="text-sm font-semibold text-white group-hover:text-teal-bright transition-colors leading-tight">{item.label}</div>
+                          <div className="text-xs text-muted/60 mt-0.5 leading-snug">{item.desc}</div>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* RIGHT */}
+                <div className="relative px-8 md:px-12 py-10 flex flex-col justify-between">
+                  <div
+                    className="absolute top-8 right-10 font-display font-bold text-[140px] leading-none text-amber-500/[0.05] select-none pointer-events-none"
+                    aria-hidden
+                  >
+                    🏆
+                  </div>
+
+                  <div>
+                    <p className="text-xs font-bold tracking-widest uppercase text-white/40 mb-6">About the Platform</p>
+                    <p className="text-white/80 text-lg font-display font-semibold leading-relaxed mb-6">
+                      The world&apos;s largest Startup Olympiad — where startups from across the globe pitch, compete, and get shortlisted for recognition and opportunities.
+                    </p>
+                    <p className="text-muted text-sm leading-relaxed mb-8">
+                      Startup Nation India is Pune&apos;s most dynamic innovation corridor — a space where ideas meet execution. We built every technical layer of their Startup Olympiad: from registration and pitch submission to shortlisting workflows and judging tools, enabling a global competition to run seamlessly at scale.
+                    </p>
+
+                    <p className="text-xs font-bold tracking-widest uppercase text-white/40 mb-4">What We Delivered</p>
+                    <div className="space-y-2.5 mb-8">
+                      {[
+                        "End-to-end platform built from scratch",
+                        "Startup pitch & registration system",
+                        "Shortlisting and evaluation workflow",
+                        "Built to handle global-scale participation",
+                      ].map((point) => (
+                        <div key={point} className="flex items-start gap-2.5">
+                          <span className="text-teal-bright mt-0.5 text-sm font-bold shrink-0">✓</span>
+                          <span className="text-sm text-soft">{point}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    <a
+                      href="https://www.linkedin.com/company/startup-nation-india/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-sm font-semibold text-teal-bright border border-teal/25 rounded-xl px-5 py-2.5 hover:bg-teal/10 transition-colors"
+                    >
+                      Visit Startup Nation India &rarr;
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              {/* Stats bar */}
+              <div className="border-t border-white/[0.06] px-8 md:px-12 py-6">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                  {[
+                    { value: "World's", label: "Largest Startup\nOlympiad" },
+                    { value: "Full", label: "End-to-End\nTech Build" },
+                    { value: "Global", label: "Startup\nParticipation" },
+                    { value: "Live", label: "Production\nStatus" },
+                  ].map((s) => (
+                    <div key={s.label} className="text-center">
+                      <div className="font-display font-bold text-3xl md:text-4xl gradient-text leading-none mb-1.5">{s.value}</div>
+                      <div className="text-xs text-muted/60 whitespace-pre-line leading-snug">{s.label}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       {/* ── MORE BUILDS COMING ── */}
       <section className="py-16 md:py-24 relative">
         <div className="max-w-7xl mx-auto px-6">
