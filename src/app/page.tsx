@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import Reveal from "@/components/ui/Reveal";
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
+import TestimonialsSlider from "@/components/ui/TestimonialsSlider";
 import { TypeAnimation } from "react-type-animation";
 
 // Load Three.js canvas client-side only
@@ -222,8 +223,8 @@ export default function HomePage() {
             transition={{ duration: 0.7, delay: 0.55, ease: [0.23, 1, 0.32, 1] }}
             className="text-base sm:text-lg md:text-xl text-muted max-w-2xl mx-auto leading-relaxed mb-10 px-2 sm:px-0"
           >
-            We help businesses build software, automate operations, and manage technology —
-            without the cost or complexity of hiring an entire IT department.
+            We work as your own dedicated technology team — not a vendor you hire for a project.
+            Your CTO, your developers, your designers. Long-term. All in one place.
           </motion.p>
 
           {/* CTAs */}
@@ -314,6 +315,101 @@ export default function HomePage() {
               </p>
             </div>
           </Reveal>
+        </div>
+      </section>
+
+      {/* ── WHY DIFFERENT ── */}
+      <section className="py-16 md:py-28 relative">
+        <div className="absolute inset-0 bg-gradient-to-b from-deep via-navy/20 to-deep" />
+        <div className="relative max-w-6xl mx-auto px-6">
+          <Reveal>
+            <div className="text-center mb-16">
+              <span className="section-tag mb-4 inline-flex">Not Your Typical IT Company</span>
+              <h2 className="font-display font-bold text-3xl md:text-5xl mt-4 mb-5">
+                We Work <span className="gradient-text">Like Your Own Team.</span><br />
+                Not Like a Vendor.
+              </h2>
+              <p className="text-muted text-lg max-w-2xl mx-auto">
+                Traditional IT companies finish the project and move on. We stay — as your CTO, your developers, your strategists. Long after the first deployment.
+              </p>
+            </div>
+          </Reveal>
+
+          {/* Comparison */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-14">
+            <Reveal delay={0.1}>
+              <div className="glass-card rounded-2xl p-8 h-full">
+                <p className="text-xs font-bold tracking-widest uppercase text-white/30 mb-6">Traditional IT Company</p>
+                <div className="space-y-3.5">
+                  {[
+                    "Delivers the project, disappears after handover",
+                    "Bills you for every change request",
+                    "Charges for discovery and architecture planning",
+                    "No strategic input — just execution",
+                    "You manage the vendor, they manage the code",
+                    "You're just another ticket in their queue",
+                  ].map((item) => (
+                    <div key={item} className="flex items-start gap-3">
+                      <span className="mt-0.5 text-white/20 text-xs font-bold shrink-0">✕</span>
+                      <p className="text-sm text-muted/50 line-through">{item}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </Reveal>
+
+            <Reveal delay={0.2}>
+              <div className="glass-card rounded-2xl p-8 h-full border-teal/30 bg-gradient-to-br from-teal/8 to-transparent">
+                <p className="text-xs font-bold tracking-widest uppercase text-teal-bright mb-6">With Mulsetu</p>
+                <div className="space-y-3.5">
+                  {[
+                    "Long-term partner — we stay, maintain, and grow with you",
+                    "Changes on your terms, no surprise invoices",
+                    "Free system design and architecture before any code",
+                    "Your own CTO — strategy, roadmap, architecture",
+                    "We work alongside your team, not above them",
+                    "Full accountability, one contact, zero silos",
+                  ].map((item) => (
+                    <div key={item} className="flex items-start gap-3">
+                      <span className="mt-0.5 text-teal-bright text-sm font-bold shrink-0">✓</span>
+                      <p className="text-sm text-soft">{item}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </Reveal>
+          </div>
+
+          {/* 5 USP pillars */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {[
+              { icon: "🎯", title: "Your Own CTO", desc: "Strategic technology leadership — architecture decisions, roadmap planning, and stack choices — included, not billed." },
+              { icon: "🔁", title: "Long-Term Support", desc: "We don't disappear after launch. Maintenance, updates, scaling, new features — we're always on, always accountable." },
+              { icon: "📐", title: "Free Architecture & Design", desc: "Full system design before any development begins. No billable discovery phase. We plan first, always." },
+              { icon: "🔧", title: "Changes on Your Terms", desc: "Requirements shift. We flex with you. Iterations and changes are built into how we work — not extra invoices." },
+              { icon: "🤝", title: "Works With Your Team", desc: "We collaborate with your existing staff and processes — filling skill gaps without replacing what's already working." },
+            ].map((usp, i) => (
+              <Reveal key={usp.title} delay={i * 0.06}>
+                <div className="glass-card glass-card-hover rounded-2xl p-7 h-full">
+                  <div className="text-3xl mb-4">{usp.icon}</div>
+                  <h3 className="font-display font-bold text-lg mb-2">{usp.title}</h3>
+                  <p className="text-sm text-muted leading-relaxed">{usp.desc}</p>
+                </div>
+              </Reveal>
+            ))}
+            <Reveal delay={0.3}>
+              <div className="glass-card rounded-2xl p-7 h-full border-teal/30 bg-gradient-to-br from-teal/8 to-transparent flex flex-col justify-between">
+                <div>
+                  <p className="text-xs font-bold tracking-widest uppercase text-teal-bright mb-3">The Bottom Line</p>
+                  <p className="font-display font-bold text-xl text-white mb-3 leading-tight">Not a vendor. Your team.</p>
+                  <p className="text-sm text-muted leading-relaxed">If you want a technology partner fully invested in your growth — not just your invoice — Mulsetu is built for you.</p>
+                </div>
+                <Link href="/dedicated-it-team" className="btn-outline mt-6 px-5 py-3 rounded-xl text-sm font-semibold inline-flex items-center gap-2">
+                  See How It Works →
+                </Link>
+              </div>
+            </Reveal>
+          </div>
         </div>
       </section>
 
@@ -483,101 +579,24 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── TESTIMONIALS ── */}
+      {/* ── TESTIMONIALS & PARTNERS ── */}
       <section className="py-16 md:py-28 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-navy/60 to-deep" />
         <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-teal/4 blur-3xl pointer-events-none" />
         <div className="relative max-w-6xl mx-auto px-6">
           <Reveal>
             <div className="text-center mb-16">
-              <span className="section-tag mb-4 inline-flex">Client Success Stories</span>
+              <span className="section-tag mb-4 inline-flex">Clients &amp; Partners</span>
               <h2 className="font-display font-bold text-3xl md:text-5xl mt-4 mb-5">
-                What Our <span className="gradient-text">Clients Say</span>
+                Who <span className="gradient-text">Trusts Mulsetu</span>
               </h2>
               <p className="text-muted text-lg max-w-xl mx-auto">
-                Real results, real feedback from founders who trust Mulsetu as their technology partner.
+                From SaaS founders to global investment firms — the businesses and partners who work with us and grow with us.
               </p>
             </div>
           </Reveal>
 
-          {testimonials.map((t, i) => (
-            <Reveal key={t.company} delay={i * 0.1}>
-              <div className="glass-card rounded-3xl p-8 md:p-10 border-teal/20 bg-gradient-to-br from-teal/5 to-transparent">
-                <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12">
-                  {/* Quote side */}
-                  <div className="lg:col-span-3 flex flex-col justify-between">
-                    <div>
-                      <div className="text-teal-bright text-4xl leading-none mb-4 font-display">&ldquo;</div>
-                      <p className="text-lg md:text-xl text-soft leading-relaxed font-medium mb-8">
-                        {t.quote}
-                      </p>
-                    </div>
-                    <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-teal/30 to-teal/10 border border-teal/30 flex items-center justify-center shrink-0">
-                        <span className="text-teal-bright font-bold text-lg">{t.founder.charAt(0)}</span>
-                      </div>
-                      <div>
-                        <p className="font-semibold text-white">{t.founder}</p>
-                        <a
-                          href={t.website}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-sm text-teal-bright hover:underline"
-                        >
-                          {t.role}
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Project details side */}
-                  <div className="lg:col-span-2 flex flex-col gap-6">
-                    {/* Logo */}
-                    <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center shrink-0 overflow-hidden p-1.5">
-                        <img src="/logos/trackmystartup.svg" alt="TrackMyStartup" className="w-full h-full object-contain" />
-                      </div>
-                      <div>
-                        <p className="font-display font-bold text-lg">{t.company}</p>
-                        <p className="text-xs text-muted">{t.project}</p>
-                      </div>
-                    </div>
-
-                    {/* Stats */}
-                    <div className="grid grid-cols-3 gap-3">
-                      {t.stats.map((s) => (
-                        <div key={s.label} className="glass-card rounded-xl p-3 text-center">
-                          <div className="font-display font-bold text-2xl gradient-text">{s.value}</div>
-                          <div className="text-xs text-muted mt-0.5 leading-tight">{s.label}</div>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* Dashboards */}
-                    <div>
-                      <p className="text-xs font-bold tracking-widest uppercase text-white/40 mb-3">Dashboards Built</p>
-                      <div className="flex flex-wrap gap-2">
-                        {t.dashboards.map((d) => (
-                          <span key={d} className="text-xs px-2.5 py-1 rounded-full bg-teal/10 border border-teal/20 text-teal-bright">
-                            {d}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-
-                    <a
-                      href={t.website}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn-outline text-xs px-4 py-2.5 rounded-lg inline-flex items-center gap-2 w-fit"
-                    >
-                      Visit {t.company} &rarr;
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </Reveal>
-          ))}
+          <TestimonialsSlider />
 
           <Reveal delay={0.3}>
             <div className="text-center mt-10">

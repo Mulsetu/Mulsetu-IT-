@@ -46,7 +46,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-sm text-muted leading-relaxed mb-6">
-              Your dedicated technology and AI partner. We work like your in-house IT team — without the overhead.
+              Not a traditional IT company. We work as your own technology team — with your CTO, free architecture, long-term support, and changes on your terms.
             </p>
             <div className="flex flex-col gap-3">
               <a href="mailto:founder@mulsetu.com" className="text-sm text-muted hover:text-teal-bright transition-colors">

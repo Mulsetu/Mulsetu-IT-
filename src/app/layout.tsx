@@ -103,7 +103,7 @@ export default function RootLayout({
                   },
                   email: "founder@mulsetu.com",
                   description:
-                    "Mulsetu is a global technology and AI partner that works as a dedicated IT team for businesses worldwide. We build SaaS platforms, custom software, AI automation, mobile apps, and websites — and manage technology end-to-end for founders and companies globally.",
+                    "Mulsetu is not a traditional IT company. We work as your own dedicated technology team — with your CTO, free system architecture, long-term support, and changes on your terms. SaaS, custom software, AI, mobile apps, and more.",
                   foundingDate: "2024",
                   areaServed: "Worldwide",
                   serviceArea: {

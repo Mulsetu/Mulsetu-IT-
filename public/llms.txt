@@ -2,7 +2,7 @@
 
 > Mulsetu is a global technology and AI company that works as a dedicated IT team for businesses and founders worldwide. We build software, automate operations, and manage technology end-to-end — so you don't have to build an in-house IT department.
 
-Mulsetu (legally incorporated as Mulsetu Agrotech Private Limited) is a technology services company serving clients globally. We operate as an embedded technology partner — functioning like an in-house IT team — rather than a traditional vendor or agency.
+Mulsetu (legally incorporated as Mulsetu Agrotech Private Limited) is not a traditional IT company. We work as a client's own dedicated technology team — providing CTO-level strategy, free system design and architecture, long-term support, and changes on the client's terms. We are embedded into the client's business rather than operating as a project-based vendor or agency.
 
 ## What Mulsetu Does
 
