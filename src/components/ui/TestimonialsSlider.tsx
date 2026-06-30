@@ -10,8 +10,8 @@ type Entry = {
   location: string;
   logo: string | null;
   website: string | null;
-  founder: string;
-  role: string;
+  founder: string | null;
+  role: string | null;
   quote: string | null;
   desc: string;
   tags: string[];
