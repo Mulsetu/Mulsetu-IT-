@@ -50,6 +50,19 @@ const entries: Entry[] = [
     stats: [],
   },
   {
+    types: ["Client"],
+    company: "Startup Nation India",
+    location: "Pune, India",
+    logo: "/logos/startup-nation.png",
+    website: "https://www.linkedin.com/company/startup-nation-india/",
+    founder: null,
+    role: null,
+    quote: null,
+    desc: "Startup Nation India runs the world's largest Startup Olympiad — a global platform where startups pitch, compete, and get shortlisted for recognition and opportunities. We built the entire technical infrastructure behind it.",
+    tags: ["Startup Olympiad", "Global Platform", "Pitch Competition", "Full Tech Build"],
+    stats: [],
+  },
+  {
     types: ["Partner", "Client"],
     company: "GVI — Gold Ventures Investment",
     location: "Vienna, Austria",
@@ -170,7 +183,7 @@ export default function TestimonialsSlider() {
                     </div>
                     {entry.website && (
                       <a href={entry.website} target="_blank" rel="noopener noreferrer" className="btn-outline text-xs px-4 py-2.5 rounded-lg inline-flex items-center gap-2 w-fit">
-                        Visit {entry.company.split(" ")[0]} →
+                        Visit →
                       </a>
                     )}
                   </div>
@@ -207,7 +220,7 @@ export default function TestimonialsSlider() {
                     </div>
                     {entry.website && (
                       <a href={entry.website} target="_blank" rel="noopener noreferrer" className="btn-outline text-xs px-4 py-2.5 rounded-lg inline-flex items-center gap-2 w-fit">
-                        Visit GVI →
+                        Visit →
                       </a>
                     )}
                   </div>
